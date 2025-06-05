@@ -3,689 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandaru Fernando | Cyber Security Expert</title>
+    <title>SANDARU FERNANDO | Cybersecurity Professional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        darksecondary: '#1e293b',
+                        accent: '#10b981',
+                    },
                     fontFamily: {
-                        'orbitron': ['Orbitron', 'sans-serif'],
-                        'exo': ['Exo 2', 'sans-serif'],
-                    },
-                    animation: {
-                        'terminal-blink': 'terminal-blink 1s infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        'terminal-blink': {
-                            '50%': { opacity: '0' },
-                        }
+                        'mono': ['"Fira Code"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
         
-        .glow-text {
-            text-shadow: 0 0 10px rgba(72, 187, 120, 0.7), 
-                         0 0 20px rgba(72, 187, 120, 0.4);
+        body {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            scroll-behavior: smooth;
         }
         
-        .glow-card {
-            box-shadow: 0 0 20px rgba(72, 187, 120, 0.3);
-            border: 1px solid rgba(72, 187, 120, 0.2);
-        }
-        
-        .cyber-border {
+        .terminal-input {
             position: relative;
+            padding-left: 24px;
         }
         
-        .cyber-border::after {
+        .terminal-input:before {
+            content: "> ";
+            position: absolute;
+            left: 8px;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .progress-container {
+            height: 6px;
+            background-color: #334155;
+            border-radius: 3px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: #10b981;
+            border-radius: 3px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
             content: '';
             position: absolute;
-            top: 0;
             left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(72, 187, 120, 0.7), transparent);
-        }
-        
-        .terminal {
-            font-family: 'Courier New', monospace;
-        }
-        
-        .hex-pattern {
-            background-image: 
-                radial-gradient(circle at 50% 10%, rgba(72, 187, 120, 0.05) 0%, transparent 20%),
-                linear-gradient(45deg, rgba(17, 24, 39, 1) 25%, transparent 25%, transparent 75%, rgba(17, 24, 39, 1) 75%),
-                linear-gradient(45deg, rgba(17, 24, 39, 1) 25%, transparent 25%, transparent 75%, rgba(17, 24, 39, 1) 75%);
-            background-size: 100% 100%, 10px 10px;
-            background-position: 0 0, 0 0, 5px 5px;
-        }
-        
-        .matrix-bg {
-            position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
             bottom: 0;
-            background: linear-gradient(transparent 95%, rgba(72, 187, 120, 0.05)),
-                        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2348bb78' fill-opacity='0.05'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm0-14a7 7 0 1 0 0 14 7 7 0 0 0 0-14z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-            opacity: 0.4;
-            z-index: -1;
+            width: 2px;
+            background-color: #10b981;
         }
         
-        .radar::before {
-            content: '';
+        .timeline-dot {
             position: absolute;
-            top: 0;
+            left: -5px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #10b981;
+        }
+        
+        .skill-badge {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background-image: linear-gradient(90deg, transparent, #10b981, #10b981, transparent);
+        }
+        
+        .linux-terminal {
+            background: linear-gradient(135deg, #0c1427, #111827);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+        }
+        
+        .header-dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .dot-red { background-color: #ef4444; }
+        .dot-yellow { background-color: #f59e0b; }
+        .dot-green { background-color: #10b981; }
+        
+        .content-block {
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        
+        .tool-name {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .tool-name:before {
+            content: "#";
+            position: absolute;
             left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid rgba(72, 187, 120, 0.4);
-        }
-        
-        .radar-scan {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(72, 187, 120,0) 60%);
-            animation: rotate 6s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            color: #10b981;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-exo">
-    <div class="matrix-bg"></div>
-    
-    <!-- Navigation -->
-    <nav class="py-6 px-4 md:px-10 fixed w-full z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-shield-halved text-green-500 text-xl"></i>
-                <span class="text-xl font-bold font-orbitron tracking-wider">Sandaru Fernando</span>
+<body class="font-sans">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-darksecondary/80 backdrop-blur-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-accent w-3 h-3 rounded-full mr-2"></div>
+                <h1 class="text-xl font-bold text-white font-mono">SF.CV</h1>
             </div>
             
-            <div class="hidden md:flex space-x-8">
-                <a href="#hero" class="hover:text-green-400 transition">Home</a>
-                <a href="#about" class="hover:text-green-400 transition">About</a>
-                <a href="#services" class="hover:text-green-400 transition">Services</a>
-                <a href="#portfolio" class="hover:text-green-400 transition">Portfolio</a>
-                <a href="#contact" class="hover:text-green-400 transition">Contact</a>
-            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#profile" class="text-accent font-medium hover:text-white transition">Profile</a>
+                <a href="#skills" class="text-gray-300 font-medium hover:text-accent transition">Skills</a>
+                <a href="#experience" class="text-gray-300 font-medium hover:text-accent transition">Experience</a>
+                <a href="#education" class="text-gray-300 font-medium hover:text-accent transition">Education</a>
+                <a href="#contact" class="text-gray-300 font-medium hover:text-accent transition">Contact</a>
+            </nav>
             
-            <button id="mobile-menu" class="md:hidden text-gray-300">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center pt-16">
-        <div class="max-w-7xl mx-auto px-4 md:px-10 py-24">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <p class="text-green-500 tracking-widest font-orbitron mb-4">SECURE THE DIGITAL FRONTIER</p>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-4 glow-text">
-                        <span class="font-orbitron">CYBER SECURITY</span> ENGINEER
-                    </h1>
-                    <h2 class="text-3xl md:text-4xl font-semibold mb-6">Alex Morgan</h2>
-                    <p class="text-gray-400 text-xl mb-10 leading-relaxed max-w-xl">
-                        Protecting organizations from digital threats with cutting-edge security solutions 
-                        and strategic cybersecurity consulting.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" class="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-md font-medium transition duration-300">
-                            Get in Touch <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                        <a href="#portfolio" class="px-6 py-3 border border-green-600 rounded-md font-medium hover:bg-green-500 hover:bg-opacity-10 transition duration-300">
-                            View Work
-                        </a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="hex-pattern rounded-xl p-1 max-w-lg mx-auto">
-                        <div class="bg-gray-800 overflow-hidden rounded-lg glow-card">
-                            <div class="bg-gray-900 p-4 h-8 flex items-center">
-                                <div class="flex space-x-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                                </div>
-                            </div>
-                            <div class="terminal p-6 h-[350px] overflow-y-auto">
-                                <p><span class="text-green-500">securix@terminal:~$</span> whoami</p>
-                                <p class="ml-4">Alex Morgan</p>
-                                <br>
-                                <p><span class="text-green-500">securix@terminal:~$</span> title</p>
-                                <p class="ml-4">Senior Cyber Security Engineer & Consultant</p>
-                                <br>
-                                <p><span class="text-green-500">securix@terminal:~$</span> specialties</p>
-                                <p class="ml-4">> Threat Analysis & Intelligence</p>
-                                <p class="ml-4">> Penetration Testing & Vulnerability Assessment</p>
-                                <p class="ml-4">> Security Architecture Design</p>
-                                <p class="ml-4">> Incident Response & Forensics</p>
-                                <p class="ml-4">> Compliance & Risk Management</p>
-                                <br>
-                                <p><span class="text-green-500">securix@terminal:~$</span> find_me_on</p>
-                                <p class="ml-4">
-                                    <a href="#" class="text-green-400 hover:text-green-300">LinkedIn</a> |
-                                    <a href="#" class="text-green-400 hover:text-green-300">GitHub</a> |
-                                    <a href="#" class="text-green-400 hover:text-green-300">Twitter</a>
-                                </p>
-                                <br>
-                                <p><span class="text-green-500">securix@terminal:~$</span> <span class="terminal-blink">▌</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-gray-800 bg-opacity-50 relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-10">
-            <div class="text-center mb-16">
-                <p class="text-green-500 font-orbitron tracking-widest mb-2">PROFILE</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 cyber-border relative pb-4">About Me</h2>
-                <p class="text-gray-400 max-w-3xl mx-auto">
-                    Cybersecurity expert with 8+ years of experience in developing and implementing security strategies 
-                    for Fortune 500 companies and innovative startups.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <div class="col-span-1 lg:col-span-2">
-                    <h3 class="text-2xl font-semibold mb-4">My Cybersecurity Journey</h3>
-                    <p class="text-gray-300 mb-6">
-                        As a Certified Information Systems Security Professional (CISSP) and Offensive Security Certified 
-                        Professional (OSCP), I've dedicated my career to protecting organizations from evolving cyber threats. 
-                        My approach combines technical expertise with strategic planning to create resilient security postures.
-                    </p>
-                    <p class="text-gray-300 mb-8">
-                        From conducting penetration tests on critical infrastructure to developing comprehensive security policies, 
-                        I've helped organizations across finance, healthcare, and technology sectors strengthen their defenses and 
-                        respond effectively to breaches.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-800 bg-opacity-40 rounded-lg">
-                            <i class="fas fa-helmet-safety text-green-500 text-3xl mb-4"></i>
-                            <h4 class="font-semibold text-lg mb-2">Ethical Hacking</h4>
-                            <p class="text-gray-400 text-sm">Finding vulnerabilities before attackers do</p>
-                        </div>
-                        <div class="p-4 bg-gray-800 bg-opacity-40 rounded-lg">
-                            <i class="fas fa-network-wired text-green-500 text-3xl mb-4"></i>
-                            <h4 class="font-semibold text-lg mb-2">Security Architecture</h4>
-                            <p class="text-gray-400 text-sm">Designing robust defense systems</p>
-                        </div>
-                        <div class="p-4 bg-gray-800 bg-opacity-40 rounded-lg">
-                            <i class="fas fa-user-shield text-green-500 text-3xl mb-4"></i>
-                            <h4 class="font-semibold text-lg mb-2">Threat Intelligence</h4>
-                            <p class="text-gray-400 text-sm">Staying ahead of emerging threats</p>
-                        </div>
-                        <div class="p-4 bg-gray-800 bg-opacity-40 rounded-lg">
-                            <i class="fas fa-file-contract text-green-500 text-3xl mb-4"></i>
-                            <h4 class="font-semibold text-lg mb-2">Compliance</h4>
-                            <p class="text-gray-400 text-sm">Meeting regulatory requirements</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-span-1 flex items-center">
-                    <div class="relative w-full max-w-xs mx-auto">
-                        <div class="radar w-64 h-64 mx-auto relative flex items-center justify-center">
-                            <div class="radar-scan"></div>
-                        </div>
-                        <div class="grid grid-cols-4 gap-4 mt-6">
-                            <div class="text-center p-3 bg-gray-800 bg-opacity-60 rounded-lg">
-                                <p class="text-3xl font-bold text-green-500">8+</p>
-                                <p class="text-sm text-gray-400">Years Exp</p>
-                            </div>
-                            <div class="text-center p-3 bg-gray-800 bg-opacity-60 rounded-lg">
-                                <p class="text-3xl font-bold text-green-500">120+</p>
-                                <p class="text-sm text-gray-400">Projects</p>
-                            </div>
-                            <div class="text-center p-3 bg-gray-800 bg-opacity-60 rounded-lg">
-                                <p class="text-3xl font-bold text-green-500">15</p>
-                                <p class="text-sm text-gray-400">Certifications</p>
-                            </div>
-                            <div class="text-center p-3 bg-gray-800 bg-opacity-60 rounded-lg">
-                                <p class="text-3xl font-bold text-green-500">99%</p>
-                                <p class="text-sm text-gray-400">Client Satisfaction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section id="services" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-10">
-            <div class="text-center mb-16">
-                <p class="text-green-500 font-orbitron tracking-widest mb-2">WHAT I DO</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 cyber-border relative pb-4">Security Services</h2>
-                <p class="text-gray-400 max-w-3xl mx-auto">
-                    Comprehensive cybersecurity solutions tailored to your organization's unique risks and requirements.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glow-card bg-gray-800 p-8 rounded-xl bg-opacity-50 hover:bg-opacity-70 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
-                        <i class="fas fa-crosshairs text-green-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Penetration Testing</h3>
-                    <p class="text-gray-400 mb-4">
-                        Simulating sophisticated attacks to identify and remediate vulnerabilities in your networks, 
-                        applications, and infrastructure before criminals exploit them.
-                    </p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Web Application Testing</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Network Infrastructure Testing</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Wireless Security Audits</li>
-                    </ul>
-                </div>
-                
-                <div class="glow-card bg-gray-800 p-8 rounded-xl bg-opacity-50 hover:bg-opacity-70 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
-                        <i class="fas fa-building-shield text-green-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Security Architecture</h3>
-                    <p class="text-gray-400 mb-4">
-                        Designing and implementing enterprise security architectures that align with business objectives 
-                        while maintaining robust protection against modern threats.
-                    </p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Zero Trust Implementation</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Cloud Security Design</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Secure SDLC Integration</li>
-                    </ul>
-                </div>
-                
-                <div class="glow-card bg-gray-800 p-8 rounded-xl bg-opacity-50 hover:bg-opacity-70 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
-                        <i class="fas fa-bug text-green-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Incident Response</h3>
-                    <p class="text-gray-400 mb-4">
-                        Preparing for, detecting, and responding to security incidents to minimize impact and 
-                        restore normal operations rapidly.
-                    </p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Breach Investigation</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Digital Forensics</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Response Plan Development</li>
-                    </ul>
-                </div>
-                
-                <div class="glow-card bg-gray-800 p-8 rounded-xl bg-opacity-50 hover:bg-opacity-70 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
-                        <i class="fas fa-file-shield text-green-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Compliance & Risk</h3>
-                    <p class="text-gray-400 mb-4">
-                        Navigating complex regulatory requirements while implementing risk-based security frameworks 
-                        to protect critical assets.
-                    </p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> ISO 27001 Implementation</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> GDPR Compliance</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Risk Assessment</li>
-                    </ul>
-                </div>
-                
-                <div class="glow-card bg-gray-800 p-8 rounded-xl bg-opacity-50 hover:bg-opacity-70 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
-                        <i class="fas fa-users-gear text-green-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Security Training</h3>
-                    <p class="text-gray-400 mb-4">
-                        Empowering your workforce through engaging security awareness programs tailored to 
-                        different roles and responsibilities.
-                    </p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Phishing Simulations</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Executive Security Briefings</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Developer Secure Coding</li>
-                    </ul>
-                </div>
-                
-                <div class="glow-card bg-gray-800 p-8 rounded-xl bg-opacity-50 hover:bg-opacity-70 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
-                        <i class="fas fa-magnifying-glass-chart text-green-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Threat Intelligence</h3>
-                    <p class="text-gray-400 mb-4">
-                        Proactive monitoring and analysis of emerging threats to anticipate attacks and 
-                        strengthen defenses before incidents occur.
-                    </p>
-                    <ul class="text-gray-300 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Dark Web Monitoring</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Threat Actor Profiling</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Vulnerability Intelligence</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-gray-800 bg-opacity-50 relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-10">
-            <div class="text-center mb-16">
-                <p class="text-green-500 font-orbitron tracking-widest mb-2">PROVEN TRACK RECORD</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 cyber-border relative pb-4">Security Projects</h2>
-                <p class="text-gray-400 max-w-3xl mx-auto">
-                    A selection of security engagements showcasing my expertise in protecting critical systems 
-                    and sensitive data.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group relative overflow-hidden rounded-xl glow-card">
-                    <div class="bg-gray-800 bg-opacity-70 h-64 flex items-center justify-center">
-                        <i class="fas fa-server text-green-500 text-7xl"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-semibold mb-2">Financial Institution Security Overhaul</h3>
-                        <p class="text-gray-300 text-sm">Redesigned security architecture for a major bank</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-80 transition-opacity">
-                        <div class="text-center px-4">
-                            <h3 class="text-xl font-semibold mb-2">Financial Institution Security Overhaul</h3>
-                            <p class="text-gray-300 text-sm mb-4">Redesigned security architecture for a major bank</p>
-                            <p class="text-gray-400 mb-4">Implemented a zero trust architecture across 3,000 endpoints and 100+ servers</p>
-                            <button class="px-4 py-2 border border-green-500 rounded-lg text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-xl glow-card">
-                    <div class="bg-gray-800 bg-opacity-70 h-64 flex items-center justify-center">
-                        <i class="fas fa-hospital text-green-500 text-7xl"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-semibold mb-2">Healthcare IoT Security</h3>
-                        <p class="text-gray-300 text-sm">Secured medical devices for regional hospitals</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-80 transition-opacity">
-                        <div class="text-center px-4">
-                            <h3 class="text-xl font-semibold mb-2">Healthcare IoT Security</h3>
-                            <p class="text-gray-300 text-sm mb-4">Secured medical devices for regional hospitals</p>
-                            <p class="text-gray-400 mb-4">Developed security protocols for network-connected medical equipment</p>
-                            <button class="px-4 py-2 border border-green-500 rounded-lg text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-xl glow-card">
-                    <div class="bg-gray-800 bg-opacity-70 h-64 flex items-center justify-center">
-                        <i class="fas fa-cloud text-green-500 text-7xl"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-semibold mb-2">Cloud Migration Security</h3>
-                        <p class="text-gray-300 text-sm">Secure transition to cloud infrastructure</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-80 transition-opacity">
-                        <div class="text-center px-4">
-                            <h3 class="text-xl font-semibold mb-2">Cloud Migration Security</h3>
-                            <p class="text-gray-300 text-sm mb-4">Secure transition to cloud infrastructure</p>
-                            <p class="text-gray-400 mb-4">Designed secure AWS environment for enterprise applications</p>
-                            <button class="px-4 py-2 border border-green-500 rounded-lg text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-xl glow-card">
-                    <div class="bg-gray-800 bg-opacity-70 h-64 flex items-center justify-center">
-                        <i class="fas fa-lock text-green-500 text-7xl"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-semibold mb-2">Blockchain Security Audit</h3>
-                        <p class="text-gray-300 text-sm">Security assessment for cryptocurrency exchange</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-80 transition-opacity">
-                        <div class="text-center px-4">
-                            <h3 class="text-xl font-semibold mb-2">Blockchain Security Audit</h3>
-                            <p class="text-gray-300 text-sm mb-4">Security assessment for cryptocurrency exchange</p>
-                            <p class="text-gray-400 mb-4">Identified critical vulnerabilities in smart contract implementation</p>
-                            <button class="px-4 py-2 border border-green-500 rounded-lg text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-xl glow-card">
-                    <div class="bg-gray-800 bg-opacity-70 h-64 flex items-center justify-center">
-                        <i class="fas fa-wifi text-green-500 text-7xl"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-semibold mb-2">Secure Retail Network</h3>
-                        <p class="text-gray-300 text-sm">Wireless security for national retail chain</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-80 transition-opacity">
-                        <div class="text-center px-4">
-                            <h3 class="text-xl font-semibold mb-2">Secure Retail Network</h3>
-                            <p class="text-gray-300 text-sm mb-4">Wireless security for national retail chain</p>
-                            <p class="text-gray-400 mb-4">Secured payment processing across 500+ retail locations</p>
-                            <button class="px-4 py-2 border border-green-500 rounded-lg text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-xl glow-card">
-                    <div class="bg-gray-800 bg-opacity-70 h-64 flex items-center justify-center">
-                        <i class="fas fa-file-medical text-green-500 text-7xl"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-semibold mb-2">GDPR Compliance Program</h3>
-                        <p class="text-gray-300 text-sm">EU compliance for multinational corporation</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-80 transition-opacity">
-                        <div class="text-center px-4">
-                            <h3 class="text-xl font-semibold mb-2">GDPR Compliance Program</h3>
-                            <p class="text-gray-300 text-sm mb-4">EU compliance for multinational corporation</p>
-                            <p class="text-gray-400 mb-4">Developed and implemented comprehensive privacy program</p>
-                            <button class="px-4 py-2 border border-green-500 rounded-lg text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-16">
-                <button class="px-6 py-3 border border-green-500 rounded-lg hover:bg-green-500 hover:bg-opacity-10 transition">
-                    View Full Portfolio
+            <div class="flex items-center">
+                <button id="mobile-menu" class="md:hidden text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 md:px-10">
-            <div class="text-center mb-16">
-                <p class="text-green-500 font-orbitron tracking-widest mb-2">GET IN TOUCH</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 cyber-border relative pb-4">Contact Me</h2>
-                <p class="text-gray-400 max-w-3xl mx-auto">
-                    Ready to strengthen your security posture? Contact me for a confidential consultation about 
-                    your organization's security needs.
-                </p>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-nav" class="hidden md:hidden bg-darksecondary py-4 px-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#profile" class="text-accent font-medium">Profile</a>
+                <a href="#skills" class="text-gray-300 font-medium">Skills</a>
+                <a href="#experience" class="text-gray-300 font-medium">Experience</a>
+                <a href="#education" class="text-gray-300 font-medium">Education</a>
+                <a href="#contact" class="text-gray-300 font-medium">Contact</a>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2">
-                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 glow-card">
-                        <h3 class="text-2xl font-semibold mb-6">Send a Secure Message</h3>
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-gray-400 mb-2">Name</label>
-                                    <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Your name">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-gray-400 mb-2">Email</label>
-                                    <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Your email">
-                                </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-dark to-darksecondary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <div class="linux-terminal rounded-xl overflow-hidden">
+                        <div class="bg-gray-800 py-3 px-4 flex items-center">
+                            <div class="header-dots mr-3">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
                             </div>
-                            <div>
-                                <label for="subject" class="block text-gray-400 mb-2">Subject</label>
-                                <input type="text" id="subject" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="What is this regarding?">
+                            <p class="text-gray-300 text-sm font-mono">root@portfolio:~</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="font-mono mb-6">
+                                <p class="text-accent mb-1"># Welcome to my Cybersecurity Portfolio</p>
+                                <p class="text-gray-400">Last login: <span id="current-date" class="text-accent"></span> from your IP</p>
                             </div>
-                            <div>
-                                <label for="message" class="block text-gray-400 mb-2">Message</label>
-                                <textarea id="message" rows="5" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Type your secure message here..."></textarea>
+                            
+                            <div class="terminal-input mb-2 font-mono">
+                                <span class="text-accent">user@portfolio:~$</span> whois sandaru_fernando
                             </div>
-                            <div>
-                                <button type="submit" class="w-full py-4 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition">
-                                    Send Encrypted Message <i class="fas fa-lock ml-2"></i>
-                                </button>
+                            
+                            <div class="font-mono text-gray-300 pl-6 mb-8">
+                                <p class="text-lg text-white font-medium">SANDARU FERNANDO</p>
+                                <p class="my-3"><i class="fas fa-map-marker-alt text-accent mr-2"></i> Nugegoda, Sri Lanka</p>
+                                <p class="my-3"><i class="fas fa-phone text-accent mr-2"></i> +94 77 988 3227</p>
+                                <p class="my-3"><i class="fas fa-envelope text-accent mr-2"></i> hansakasandaru99@gmail.com</p>
+                                <p class="my-3"><i class="fab fa-linkedin text-accent mr-2"></i> linkedin.com/in/sandarufernando</p>
                             </div>
-                        </form>
+                            
+                            <div class="terminal-input mb-2 font-mono">
+                                <span class="text-accent">user@portfolio:~$</span> start_portfolio --section=profile
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="space-y-6">
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl glow-card">
-                        <i class="fas fa-envelope text-green-500 text-2xl mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Email</h3>
-                        <p class="text-gray-400">For formal inquiries</p>
-                        <a href="mailto:contact@securix.io" class="text-green-400 hover:text-green-300 transition">contact@securix.io</a>
-                    </div>
-                    
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl glow-card">
-                        <i class="fas fa-key text-green-500 text-2xl mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">PGP Key</h3>
-                        <p class="text-gray-400 mb-2">For secure communications</p>
-                        <a href="#" class="text-green-400 hover:text-green-300 transition inline-block mb-2">Download Public Key</a>
-                        <p class="text-gray-500 text-sm">Fingerprint: 1A2B 3C4D 5E6F 7A8B 9C0D</p>
-                    </div>
-                    
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl glow-card">
-                        <i class="fas fa-map-marker-alt text-green-500 text-2xl mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Based In</h3>
-                        <p class="text-gray-400">
-                            Cybersecurity Operations Center<br>
-                            Level 10, Security Tower<br>
-                            Berlin, Germany
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl glow-card">
-                        <h3 class="text-xl font-semibold mb-4">Follow My Security Blog</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center text-green-500 hover:bg-green-500 hover:bg-opacity-10 transition">
-                                <i class="fab fa-medium-m"></i>
-                            </a>
+                <div class="lg:w-1/2">
+                    <div class="content-block p-8 rounded-xl">
+                        <h1 class="text-3xl font-bold text-white mb-6">Cybersecurity Specialist</h1>
+                        <p class="text-lg mb-8 text-gray-300">Specializing in both <span class="text-accent">Blue</span> and <span class="text-accent">Red</span> team operations with extensive experience in vulnerability assessments, security operations, and team leadership.</p>
+                        
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm">Blue Team</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm">Red Team</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm">Pen Testing</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm">SOC Analysis</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm">Vulnerability Mgmt</span>
+                            <span class="skill-badge px-3 py-1 rounded-full text-sm">Security Leadership</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="py-12 bg-gray-900 bg-opacity-90 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 md:px-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-6">
-                        <i class="fas fa-shield-halved text-green-500 text-xl"></i>
-                        <span class="text-xl font-bold font-orbitron tracking-wider">SECURIX</span>
-                    </div>
-                    <p class="text-gray-500 max-w-xs">
-                        Providing elite cybersecurity consulting services to protect what matters most - your data, systems and reputation.
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-500 hover:text-green-400 transition">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-green-400 transition">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-green-400 transition">Disclosure Policy</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-green-400 transition">Responsible Disclosure</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Certifications</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center"><i class="fas fa-certificate text-green-500 mr-2"></i> CISSP</li>
-                        <li class="flex items-center"><i class="fas fa-certificate text-green-500 mr-2"></i> OSCP</li>
-                        <li class="flex items-center"><i class="fas fa-certificate text-green-500 mr-2"></i> CISM</li>
-                        <li class="flex items-center"><i class="fas fa-certificate text-green-500 mr-2"></i> CEH</li>
-                    </ul>
-                </div>
+
+    <!-- Profile Summary -->
+    <section id="profile" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-10">
+                <div class="h-0.5 bg-accent flex-grow mr-4"></div>
+                <h2 class="text-2xl font-bold text-white font-mono">PROFILE SUMMARY</h2>
+                <div class="h-0.5 bg-accent flex-grow ml-4"></div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-600">
-                <p>© 2023 Alex Morgan | Cyber Security Engineer. All rights reserved.</p>
-                <p class="mt-2 text-sm">This site is secured with military-grade encryption</p>
+            <div class="content-block p-8 rounded-xl">
+                <p class="mb-4">Dedicated and proactive Cybersecurity Professional specializing in both Blue and Red team activities, with a proven track record of fortifying organizational defenses against cyber threats.</p>
+                <p class="mb-4">Possessing extensive expertise across diverse domains, including web vulnerability assessments, breach and attack simulation, network analysis, and security operations center analysis.</p>
+                <p class="mb-4">Proficient in leveraging industry-leading tools such as Acunetix, BurpSuite, Cymulate BAS, and Nessus to detect vulnerabilities and mitigate risks effectively.</p>
+                <p class="mb-4">Experienced in leading and training security teams to optimize operational efficiency and implement robust defense strategies.</p>
+                <p class="mb-4">Capable of conducting thorough threat-hunting activities and deploying proactive security measures to counter emerging cyber threats.</p>
+                <p>Stay abreast of the latest trends and methodologies in cybersecurity to deliver cutting-edge solutions and effectively mitigate potential risks.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-10">
+                <div class="h-0.5 bg-accent flex-grow mr-4"></div>
+                <h2 class="text-2xl font-bold text-white font-mono">PROFESSIONAL SKILLS</h2>
+                <div class="h-0.5 bg-accent flex-grow ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="content-block p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-white mb-6">Leadership & Collaboration</h3>
+                    <p class="mb-6 text-gray-300">With a focus on leadership, training, and collaboration, I excel in guiding security teams towards achieving organizational goals. I prioritize continuous learning and foster development through tailored training programs.</p>
+                    <p class="text-gray-300">Collaboration is integral to my approach, as I thrive in cross-functional environments, addressing security concerns effectively. Strong communication and problem-solving skills enable me to analyze and resolve complex issues, ensuring compliance and successful project management in dynamic settings.</p>
+                </div>
+                
+                <div class="content-block p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-white mb-6">TECHNICAL SKILLS</h3>
+                    <p class="mb-6 text-gray-300">Proficient in web vulnerability assessment using Acunetix and BurpSuite, I simulate cyberattacks with Cymulate BAS, and conduct network analysis with tools like Nessus.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <h4 class="text-accent font-semibold mb-2 tool-name">Security Tools</h4>
+                            <ul class="text-sm space-y-1 text-gray-300">
+                                <li>Acunetix • BurpSuite</li>
+                                <li>Cymulate BAS • Nessus</li>
+                                <li>CrowdStrike • Qualys</li>
+                                <li>Imperva • Zscaler</li>
+                                <li>Rapid7 • Mimecast</li>
+                                <li>Keeper • Threat Intel Feeds</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-accent font-semibold mb-2 tool-name">Specializations</h4>
+                            <ul class="text-sm space-y-1 text-gray-300">
+                                <li>Cloud Security (Azure, AWS)</li>
+                                <li>Malware Analysis</li>
+                                <li>Firewall Management</li>
+                                <li>SIEM Solutions</li>
+                                <li>Container Security</li>
+                                <li>Privileged Access Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-10">
+                <div class="h-0.5 bg-accent flex-grow mr-4"></div>
+                <h2 class="text-2xl font-bold text-white font-mono">WORK EXPERIENCE</h2>
+                <div class="h-0.5 bg-accent flex-grow ml-4"></div>
+            </div>
+            
+            <div class="timeline">
+                <!-- Current Position -->
+                <div class="mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div class="content-block p-6 rounded-xl">
+                        <div class="flex justify-between flex-wrap">
+                            <h3 class="text-xl font-semibold text-white">SecOps Analyst</h3>
+                            <span class="text-accent font-mono">Jul 2024 - Present</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Carlson Marketing Solutions, Jonas Software, CA</p>
+                        
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                            <li>Leverage CrowdStrike for real-time endpoint monitoring and incident response coordination</li>
+                            <li>Automate vulnerability scans and compliance checks using Qualys for proactive risk mitigation</li>
+                            <li>Manage application security with Imperva, ensuring robust defenses against web threats</li>
+                            <li>Implement secure access policies with Zscaler to protect corporate resources</li>
+                            <li>Use Rapid7 for vulnerability assessments, prioritizing remediation to address critical risks</li>
+                            <li>Track incident responses and document workflows in Jira for efficient resolution</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Previous Positions -->
+                <div class="mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div class="content-block p-6 rounded-xl">
+                        <div class="flex justify-between flex-wrap">
+                            <h3 class="text-xl font-semibold text-white">Senior Executive - Penetration Testing</h3>
+                            <span class="text-accent font-mono">Nov 2023 - Jul 2024</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Dialog Axiata PLC, Colombo</p>
+                        
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                            <li>Conducted web-based penetration testing with tools such as BurpSuite, Nmap, and others</li>
+                            <li>Performed breach simulations and assessed security posture using Cymulate BAS</li>
+                            <li>Executed thorough security assessments, including Nessus-based OS and MBSS vulnerability scans</li>
+                            <li>Mitigated web application risks with Acunetix for detailed vulnerability analysis</li>
+                            <li>Leveraged CTM 360 and Security Scorecard for continuous cyber risk monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div class="content-block p-6 rounded-xl">
+                        <div class="flex justify-between flex-wrap">
+                            <h3 class="text-xl font-semibold text-white">Network and Security Engineer</h3>
+                            <span class="text-accent font-mono">Apr 2023 - Nov 2023</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">N-Able Private Limited, Colombo</p>
+                        
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                            <li>Led L2 analysis within the Security Operations Center (SOC) at Nable PVT LTD</li>
+                            <li>Conducted thorough vulnerability assessments using Nessus to fortify security posture</li>
+                            <li>Proactively engaged in cyber threat hunting to detect and neutralize potential security threats</li>
+                            <li>Managed and monitored firewall systems to ensure the integrity of network infrastructure</li>
+                            <li>Directed the installation, configuration, and monitoring of Sentinel One EDR agents</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div class="content-block p-6 rounded-xl">
+                        <div class="flex justify-between flex-wrap">
+                            <h3 class="text-xl font-semibold text-white">Associate Engineer - Information Security</h3>
+                            <span class="text-accent font-mono">Nov 2021 - Apr 2023</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">CryptoGen Private Limited, Colombo</p>
+                        
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                            <li>Served as Deputy Lead in the SOC, providing leadership and support</li>
+                            <li>Operated within a 24/7 Security Operations Center environment</li>
+                            <li>Proficient in Microsoft Azure Security Solutions</li>
+                            <li>Utilized EDR solutions such as Crowdstrike and implemented DarkTrace</li>
+                            <li>Conducted Container VA Security using Prisma</li>
+                            <li>Specialized in phishing email analysis and campaigns</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div class="content-block p-6 rounded-xl">
+                        <div class="flex justify-between flex-wrap">
+                            <h3 class="text-xl font-semibold text-white">Trainee SOC Analyst</h3>
+                            <span class="text-accent font-mono">Mar 2021 - Nov 2021</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">CryptoGen Private Limited, Colombo</p>
+                        
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                            <li>Operated in a 24/7 Security Operations Center environment</li>
+                            <li>Conducted vulnerability scans using Nessus</li>
+                            <li>Gained experience in utilizing McAfee ESM and Forti SIEM</li>
+                            <li>Developed expertise in EDR solutions, including Crowdstrike</li>
+                            <li>Engaged in Cyber Threat Intelligence Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-10">
+                <div class="h-0.5 bg-accent flex-grow mr-4"></div>
+                <h2 class="text-2xl font-bold text-white font-mono">EDUCATION & CREDENTIALS</h2>
+                <div class="h-0.5 bg-accent flex-grow ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Education -->
+                <div class="content-block p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-white mb-6">EDUCATION</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-accent mb-1">BSc (Hon's) in Information Technology</h4>
+                        <p class="text-gray-400 mb-2">Specialized in Cyber Security</p>
+                        <p class="text-gray-300">Sri Lanka Institute of Information Technology (SLIIT)</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-accent mb-1">GCE Advanced Level (Biology)</h4>
+                        <p class="text-gray-300">Dhammissara National School - Nattandiya</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-medium text-accent mb-1">GCE Ordinary Level</h4>
+                        <p class="text-gray-300">Dhammissara National School - Nattandiya</p>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="content-block p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-white mb-6">LICENSES & CERTIFICATIONS</h3>
+                    
+                    <ul class="space-y-3 text-gray-300">
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> Certified Ethical Hacker (C| EH v12)</li>
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> arcX Cyber Threat Intelligence 101</li>
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> OPSWAT Network Security Associate</li>
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> CyberArk Trustee Level 1 Certification</li>
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> Fortinet NSE 1 & 2 Certifications</li>
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> ISO/IEC 27001 Information Security Associate™</li>
+                        <li><i class="fas fa-certificate text-accent mr-2"></i> Google Data Studio A-Z for Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Academic Projects -->
+            <div class="mt-12 content-block p-8 rounded-xl">
+                <h3 class="text-xl font-semibold text-white mb-6">ACADEMIC PROJECTS</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-medium text-accent mb-2">FINAL YEAR PROJECT - AUTOMATED FORENSICS APPLICATION FOR MALWARE ANALYSIS USING MACHINE LEARNING</h4>
+                        <p class="text-gray-300">The main objective of this research is to automate the malware identification process by analyzing the APIs, registry keys, network connections, and DLLs using the Volatility framework and Machine Learning.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-medium text-accent mb-2">WEB SECURITY AUDIT | grammarly.com</h4>
+                        <p class="text-gray-300">Grammarly's bug bounty program was used from Hacker One platform to perform a comprehensive web security audit using both manual and automated tools to check for security loopholes and misconfigurations.</p>
+                        <p class="text-gray-400 mt-2">Tools: Kali Linux, Netsparker, OSINT Framework, Burp suite Pro, Nikto, Nessus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-10">
+                <div class="h-0.5 bg-accent flex-grow mr-4"></div>
+                <h2 class="text-2xl font-bold text-white font-mono">CONTACT & INTERESTS</h2>
+                <div class="h-0.5 bg-accent flex-grow ml-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div class="content-block p-8 rounded-xl md:col-span-1">
+                    <h3 class="text-xl font-semibold text-white mb-6">CONTACT INFO</h3>
+                    
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-accent mt-1 mr-3"></i>
+                            <span>Nugegoda, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-accent mt-1 mr-3"></i>
+                            <span>+94 77 988 3227</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-accent mt-1 mr-3"></i>
+                            <span>hansakasandaru99@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fab fa-linkedin text-accent mt-1 mr-3"></i>
+                            <span>linkedin.com/in/sandarufernando</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-white font-medium mb-4">Download CV</h4>
+                        <button class="bg-accent hover:bg-emerald-600 text-white py-2 px-6 rounded-full transition">
+                            <i class="fas fa-download mr-2"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Interests -->
+                <div class="content-block p-8 rounded-xl md:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-6">INTERESTS</h3>
+                            
+                            <div class="flex flex-wrap gap-3">
+                                <span class="skill-badge px-3 py-2 rounded text-accent">Security Operations Center</span>
+                                <span class="skill-badge px-3 py-2 rounded">Access Management</span>
+                                <span class="skill-badge px-3 py-2 rounded">Cloud Security</span>
+                                <span class="skill-badge px-3 py-2 rounded">Security Training & Leadership</span>
+                                <span class="skill-badge px-3 py-2 rounded">Network Security</span>
+                                <span class="skill-badge px-3 py-2 rounded">Penetration Testing</span>
+                                <span class="skill-badge px-3 py-2 rounded">Vulnerability Assessment</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-6">EXTRACURRICULAR</h3>
+                            
+                            <ul class="space-y-2 text-gray-300">
+                                <li>Member | Cyber Security Community of SLIIT</li>
+                                <li>Member | SLIIT Rotaract Club</li>
+                                <li>School Prefect</li>
+                                <li>Diploma in Music (Violin)</li>
+                                <li>Bronze medalist in inter school Karate Championship</li>
+                                <li>Member of School Cricket Team</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center border-t border-gray-800 text-gray-500">
+        <div class="container mx-auto px-4">
+            <p>© 2024 SANDARU FERNANDO | Cybersecurity Professional</p>
+        </div>
     </footer>
-    
+
     <script>
-        // Simple navigation highlighting
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if(pageYOffset >= sectionTop - 300) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-green-400');
-                if(link.getAttribute('href').includes(current)) {
-                    link.classList.add('text-green-400');
-                }
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-nav');
+            menu.classList.toggle('hidden');
+        });
+
+        // Set current date in the terminal
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-nav').classList.add('hidden');
             });
         });
     </script>
