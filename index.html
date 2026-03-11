@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://img.youtube.com; connect-src 'self';">
+    <title>Sandaru Fernando | Cybersecurity Specialist</title>
+    <meta name="description" content="Portfolio of Sandaru Fernando — Cybersecurity Specialist in Blue & Red team operations, vulnerability assessments, and security leadership.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Social / OG Preview -->
+    <meta property="og:title" content="Sandaru Fernando | Cybersecurity Specialist">
+    <meta property="og:description" content="Blue & Red team operations, vulnerability assessments, and security leadership.">
+    <meta property="og:image" content="https://sandarufdo.github.io/profile_cyber.png">
+    <meta property="og:url" content="https://sandarufdo.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://sandarufdo.github.io/profile_cyber.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Terminal Overlay -->
+<div id="terminal-overlay">
+    <div class="term-header">
+        <div class="term-title">SECURE_CON_V2.0 // SYSTEM_ROOT</div>
+        <button class="term-close" id="closeTerminal">&times;</button>
+    </div>
+    <div class="term-content" id="term-output">
+        <div class="term-line">Welcome to the encrypted terminal. Press 'ESC' or click 'X' to close.</div>
+        <div class="term-line">Type <span class="term-cmd">'help'</span> to see available commands.</div>
+    </div>
+    <div class="term-input-line">
+        <span class="term-prompt">sandaru@root:~$</span>
+        <input type="text" id="term-input" autofocus autocomplete="off">
+    </div>
+</div>
+
+<!-- Scan Line Overlay -->
+<div class="scanlines"></div>
+
+<!-- Matrix Digital Rain Canvas -->
+<canvas id="matrix-bg"></canvas>
+
+<!-- Secondary Node Background Canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Navigation -->
+<nav class="glass-nav" id="main-nav">
+    <div class="nav-inner">
+        <a href="#home" class="logo-mark">
+            <span class="logo-bracket">[</span>SF<span class="logo-bracket">]</span>
+        </a>
+        
+        <div class="nav-center hidden-mobile">
+            <div class="nav-trace">
+                <i class="fas fa-network-wired trace-icon"></i>
+                <span class="trace-label">ROOT</span>
+                <span class="trace-separator">//</span>
+                <span class="trace-path" id="nav-active-path">HOME</span>
+                <span class="trace-cursor blink-cursor">_</span>
+            </div>
+        </div>
+        <ul class="nav-links" aria-label="Main navigation">
+            <li><a href="#profile" aria-label="Profile section"><span class="nav-num">01</span>Profile</a></li>
+            <li><a href="#skills" aria-label="Skills section"><span class="nav-num">02</span>Skills</a></li>
+            <li><a href="#experience" aria-label="Experience section"><span class="nav-num">03</span>Experience</a></li>
+            <li><a href="#education" aria-label="Education section"><span class="nav-num">04</span>Education</a></li>
+            <li><a href="#podcasts" aria-label="Podcasts section"><span class="nav-num">05</span>Podcasts</a></li>
+            <li><a href="#tools" aria-label="Tools section"><span class="nav-num">06</span>Tools</a></li>
+            <li><a href="#contact" class="nav-cta" aria-label="Contact section">CONTACT</a></li>
+            <li class="breach-toggle-wrap">
+                <button id="breachToggle" class="breach-btn" title="Toggle Breach Mode" aria-pressed="false">
+                    <i class="fas fa-radiation"></i> <span>SECURE</span>
+                </button>
+            </li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="hero-section">
+    <div class="hero-grid">
+
+
+        <!-- Right: Hero Text (photo follows after) -->
+        <div class="hero-text reveal-right">
+            <div class="hero-tag">// CYBER SECURITY PROFESSIONAL</div>
+            <h1 class="hero-title">
+                <span class="glitch-text" data-text="Sandaru">Sandaru</span><br>
+                <span class="glitch-text accent-name" data-text="Fernando">Fernando</span>
+            </h1>
+            <p class="hero-sub">Specializing in <span class="hl-blue">Blue Team</span> & <span class="hl-red">Red Team</span> operations — vulnerability assessments, breach simulations, and security leadership across enterprise environments.</p>
+            <div class="tag-row">
+                <span class="cyber-tag"><i class="fas fa-shield-alt"></i> Blue Team</span>
+                <span class="cyber-tag red"><i class="fas fa-skull-crossbones"></i> Red Team</span>
+                <span class="cyber-tag"><i class="fas fa-bug"></i> Pen Testing</span>
+                <span class="cyber-tag"><i class="fas fa-eye"></i> SOC Analysis</span>
+                <span class="cyber-tag"><i class="fas fa-search"></i> Threat Hunting</span>
+                <span class="cyber-tag"><i class="fas fa-users-cog"></i> Leadership</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#experience" class="btn-cyber">View Experience <i class="fas fa-arrow-right"></i></a>
+                <a href="https://drive.usercontent.google.com/uc?id=1GJnGrODG_xE860BTth9FI9noUZIAVSBI&export=download" class="btn-outline"><i class="fas fa-file-pdf"></i> Download CV</a>
+            </div>
+        </div>
+
+        <!-- Far Right: Profile Photo -->
+        <div class="hero-avatar reveal">
+            <div class="avatar-frame">
+                <div class="avatar-corner atl"></div>
+                <div class="avatar-corner atr"></div>
+                <div class="avatar-corner abl"></div>
+                <div class="avatar-corner abr"></div>
+                <div class="avatar-scan"></div>
+                <img src="profile_cyber.png" alt="Sandaru Fernando" class="avatar-img">
+                <div class="avatar-overlay">
+                    <span class="av-badge">&#9679; ONLINE</span>
+                    <span class="av-badge red">&#11043; ANALYSING</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Bar: terminal-style strip below hero -->
+    <div class="hud-bar reveal">
+        <div class="hud-bar-topbar">
+            <div class="hud-dots"><span></span><span></span><span></span></div>
+            <span class="hud-bar-title">SECURE_SHELL // root@portfolio:~</span>
+            <span class="hud-bar-live"><i class="fas fa-circle hud-live-dot"></i> LIVE</span>
+        </div>
+        <div class="hud-bar-body">
+            <div class="hud-bar-prompt"><span class="prompt">▶</span> <span class="cmd">whois</span> sandaru_fernando</div>
+            <div class="hud-bar-divider"></div>
+            <span class="hud-bar-item"><i class="fas fa-user"></i> SANDARU FERNANDO &nbsp;<span class="hud-bar-role">// Cybersecurity Specialist</span></span>
+            <div class="hud-bar-divider"></div>
+            <span class="hud-bar-item"><i class="fas fa-map-marker-alt"></i> Nugegoda, Sri Lanka</span>
+            <span class="hud-bar-item"><i class="fas fa-envelope"></i> hansakasandaru99@gmail.com</span>
+            <span class="hud-bar-item"><i class="fab fa-linkedin"></i> linkedin.com/in/sandarufernando</span>
+            <span class="hud-bar-item"><i class="fas fa-phone"></i> +94 77 988 3227</span>
+            <span class="cursor-blink" style="color:var(--primary); margin-left:auto;">█</span>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-hint"><div class="scroll-line"></div><span>SCROLL</span></div>
+</section>
+
+<!-- ===================== 01 PROFILE ===================== -->
+<section id="profile" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">01</span>
+            <h2 class="sec-title typewriter" data-text="PROFILE SUMMARY">PROFILE SUMMARY</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="profile-grid reveal">
+            <div class="profile-text hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <p>Cybersecurity professional bridging <span class="hl-blue">Blue</span> and <span class="hl-red">Red</span> team operations, with core expertise in Security Operations Center (SOC) engineering. Specialized in deploying SIEM architectures, writing detection rules, and correlating alert telemetry across complex enterprise networks.</p>
+                <p>Proven capability in team leadership and incident response, orchestrating cross-functional workflows to contain threats and manage SLA-driven mitigation strategies under high-pressure scenarios.</p>
+                <p>Driven by analytical problem solving, leveraging forensic logging, packet inspection, and breach simulation (BAS) to deconstruct attack vectors and eliminate critical vulnerabilities.</p>
+                <p>Supplementary experience in awareness building and technical teaching, occasionally delivering corporate workshops and foundational training to elevate long-term organizational security posture.</p>
+                
+                <!-- NEW: Hacker Terminal Updates Feed (Moved Inside) -->
+                <div class="terminal-updates reveal">
+                    <div class="terminal-header">
+                        <i class="fas fa-terminal blink-cursor"></i> <span class="sys-msg">SYSLOG // LIVE INTEL FEED</span>
+                    </div>
+                    <div class="terminal-lines" id="syslog-feed">
+                        <!-- Lines will be managed by JS -->
+                        <div class="t-line t-latest">
+                            <span class="t-time hl-red">[FUTURE]</span> 
+                            <strong class="t-badge hl-blue">[EVENT]</strong> 
+                            <span class="t-text">22nd March - Guest speaker "AI, Cyber Security and content security" - Colombo Creative Academy.</span>
+                        </div>
+                        <div class="t-line t-prev">
+                            <span class="t-time hl-blue">[LIVE]</span> 
+                            <strong class="t-badge hl-red">[NEW_RECORD]</strong> 
+                            <span class="t-text">Achieved 15+ hours of curated technical cyber awareness podcasts on air.</span>
+                        </div>
+                        <div class="t-line t-old">
+                            <span class="t-time hl-blue">[SYS]</span> 
+                            <strong class="t-badge hl-blue">[APPOINTMENT]</strong> 
+                            <span class="t-text">Now guiding newcomers as Consultant Educator at NIBM CertHub.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat-card hud-card reveal">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="stat-icon"><i class="fas fa-shield-virus"></i></div>
+                    <div class="stat-num" data-count="5">0</div>
+                    <div class="stat-label">Years in Cybersecurity</div>
+                </div>
+                <div class="stat-card hud-card reveal">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="stat-icon red"><i class="fas fa-bug"></i></div>
+                    <div class="stat-num" data-count="25">0</div>
+                    <div class="stat-label">Security Tools Mastered</div>
+                </div>
+                <div class="stat-card hud-card reveal">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="stat-num" data-count="12">0</div>
+                    <div class="stat-label">Certifications Earned</div>
+                </div>
+                <div class="stat-card hud-card reveal">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="stat-icon red"><i class="fas fa-podcast"></i></div>
+                    <div class="stat-num" data-count="10">0</div>
+                    <div class="stat-label">Talks &amp; Podcasts</div>
+                </div>
+                <!-- Impact tiles - full width -->
+                <div class="stat-card stat-wide hud-card reveal">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="stat-wide-inner">
+                        <div class="stat-icon-lg"><i class="fas fa-satellite-dish"></i></div>
+                        <div>
+                            <div class="stat-num-lg">15<span class="stat-plus">+</span><span class="stat-unit"> HRS</span></div>
+                            <div class="stat-label-lg">Curated Technical Podcasts & Talks</div>
+                            <div class="stat-sub">Fact-checked deep dives into cyber threats, social engineering, and practical security tools.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card stat-wide hud-card red-card reveal">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="stat-wide-inner">
+                        <div class="stat-icon-lg red"><i class="fas fa-user-graduate"></i></div>
+                        <div>
+                            <div class="stat-num-lg red">1,000<span class="stat-plus red">+</span></div>
+                            <div class="stat-label-lg">Students Physically Educated</div>
+                            <div class="stat-sub">Cumulative reach across hands-on workshops, university sessions, and live training programmes.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 02 SKILLS ===================== -->
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">02</span>
+            <h2 class="sec-title typewriter" data-text="PROFESSIONAL SKILLS">PROFESSIONAL SKILLS</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="skills-grid reveal">
+            <!-- 1. SOC Expert (Top Tier) -->
+            <div class="skill-panel hud-card" style="grid-column: 1 / -1; border-color: var(--primary);">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3><i class="fas fa-terminal hl-blue-icon"></i> SOC Operations & Engineering (Primary Expertise)</h3>
+                <p>Advanced proficiency in architecting, configuring, and triaging within 24/7 Security Operations Centers. Extensive hands-on experience deploying SIEM architectures (Splunk, Elastic Stack, Wazuh) and constructing automated threat detection pipelines across enterprise networks and multi-cloud environments.</p>
+                <div class="tech-two-col">
+                    <div>
+                        <h4>Core Domains</h4>
+                        <ul class="arrow-list">
+                            <li>SIEM Engineering & Alert Correlation</li>
+                            <li>Behavioral Anomaly Detection</li>
+                            <li>Web Application Vulnerability Analysis</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Specializations</h4>
+                        <ul class="arrow-list">
+                            <li>Enterprise Log Telemetry Routing</li>
+                            <li>Cloud Container Security (AWS/Azure)</li>
+                            <li>Breach & Attack Simulation (BAS)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Leadership & IR -->
+            <div class="skill-panel hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3><i class="fas fa-users-cog hl-blue-icon"></i> Leadership & Incident Response</h3>
+                <p>Directing cross-functional SOC teams and supervising shift rotations. Proven capability in orchestrating incident response protocols, managing alert escalations, and formulating mitigation strategies under pressure.</p>
+                <div class="skill-tags">
+                    <span>Shift Supervision</span><span>SLA Management</span><span>Threat Mitigation</span>
+                </div>
+            </div>
+
+            <!-- 3. Analytical Problem Solving -->
+            <div class="skill-panel hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3><i class="fas fa-brain hl-blue-icon"></i> Analytical Problem Solving</h3>
+                <p>Deconstructing complex attack vectors through forensic logging, root cause analysis, and network packet inspection to eliminate critical vulnerabilities before exploitation.</p>
+                <div class="skill-tags">
+                    <span>Root Cause Analysis</span><span>Forensic Logging</span><span>Vulnerability Triage</span>
+                </div>
+            </div>
+
+            <!-- 4. Supplementary Skills -->
+            <div class="skill-panel hud-card" style="grid-column: 1 / -1; opacity: 0.85; border-style: dashed;">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3 style="color: var(--muted);"><i class="fas fa-chalkboard-teacher" style="color: var(--muted); margin-right: 0.5rem;"></i> Supplementary Capabilities</h3>
+                <p style="margin-bottom: 0;">Capable in <strong>Awareness Building</strong> through corporate workshops and foundational <strong>Technical Teaching</strong> for entry-level personnel and public forums.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 03 EXPERIENCE ===================== -->
+<section id="experience" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">03</span>
+            <h2 class="sec-title typewriter" data-text="WORK EXPERIENCE">WORK EXPERIENCE</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="timeline-v2">
+            <div class="tl-item reveal">
+                <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                <div class="tl-content hud-card">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="tl-header">
+                        <div>
+                            <h3>SecOps Analyst</h3>
+                            <h4>Carlson Marketing Solutions (Fmr. Kognitiv / CORA) &mdash; Colombo, Sri Lanka</h4>
+                            <span class="tl-date">Jul 2024 &ndash; Present</span>
+                        </div>
+                        <span class="tl-badge">Current</span>
+                    </div>
+                    <ul class="arrow-list">
+                        <li>Administered CrowdStrike Falcon EDR across 5,000+ endpoints, reducing MTTR by 35%</li>
+                        <li>Automated vulnerability scanning using Qualys VMDR &amp; Rapid7, achieving 95%+ SLA compliance for patching cycles</li>
+                        <li>Engineered cross-cloud Python + Qualys API scripts to validate CrowdStrike CIDs across AWS, Azure &amp; GCP, improving asset hygiene by 40%</li>
+                        <li>Managed application security via Imperva WAF, defending against OWASP Top 10 and zero-day threats</li>
+                        <li>Implemented zero-trust access policies using Zscaler ZIA/ZPA for 500+ users across hybrid cloud</li>
+                        <li>Reduced phishing and BEC incidents by 60% through enhanced Mimecast detection rules</li>
+                        <li>Monitored threat intelligence feeds, writing KQL queries for alert optimisation, documented in Jira aligned with ISO 27001, SOC 2 &amp; GDPR</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tl-item reveal">
+                <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                <div class="tl-content hud-card">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="tl-header">
+                        <div>
+                            <h3>Senior Security Engineer &mdash; Penetration Testing &amp; SOC Ops</h3>
+                            <h4>Dialog Axiata PLC &mdash; Colombo, Sri Lanka</h4>
+                            <span class="tl-date">Nov 2023 &ndash; Jul 2024</span>
+                        </div>
+                    </div>
+                    <ul class="arrow-list">
+                        <li><strong>Analytical Problem Solving:</strong> Conducted in-depth web penetration testing using BurpSuite &amp; Nmap, identifying 25+ high-impact vulnerabilities with actionable remediation plans</li>
+                        <li><strong>Incident Response &amp; Testing:</strong> Performed breach simulations via Cymulate BAS, modelling 15+ real-world attacker scenarios across the MITRE ATT&amp;CK framework</li>
+                        <li>Executed OS and network vulnerability scans using Nessus (MBSS), reducing configuration weaknesses by 30%</li>
+                        <li>Managed Splunk SIEM configuration, deploying detection rules and routing telemetry for Carlson Marketing Solutions (CMG)</li>
+                        <li>Performed AWS, Azure, and GCP container security assessments using Prisma Cloud</li>
+                        <li>Executed web application vulnerability scans via Acunetix and validated findings</li>
+                        <li>Monitored enterprise risk posture utilizing CTM 360 and SecurityScorecard</li>
+                        <li>Coordinated with cross-functional teams to remediate 90%+ of identified vulnerabilities within SLA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tl-item reveal">
+                <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                <div class="tl-content hud-card">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="tl-header">
+                        <div>
+                            <h3>Associate SOC Engineer &mdash; Defensive Architecture</h3>
+                            <h4>N-Able (Pvt) Ltd &mdash; Colombo, Sri Lanka</h4>
+                            <span class="tl-date">Apr 2023 &ndash; Nov 2023</span>
+                        </div>
+                    </div>
+                    <ul class="arrow-list">
+                        <li><strong>SOC Leadership:</strong> Directed L2 SOC operations, managing alert triage, forensic logging, and root cause analysis workflows</li>
+                        <li><strong>SOC Engineering:</strong> Built and deployed an open-source SIEM stack (Wazuh, Elastic, TheHive), automating alert pipelines</li>
+                        <li>Executed monthly enterprise vulnerability assessments via Nessus, detecting and mitigating emerging threats</li>
+                        <li>Monitored core network security infrastructure (firewalls, IDS/IPS), sustaining 99.5%+ uptime</li>
+                        <li>Managed SentinelOne EDR deployment and tuning across 500+ endpoints</li>
+                        <li>Generated CTI reports, briefed management, and trained L1 SOC analysts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tl-item reveal">
+                <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                <div class="tl-content hud-card">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="tl-header">
+                        <div>
+                            <h3>Associate Engineer &mdash; Information Security</h3>
+                            <h4>CryptoGen (Pvt) Ltd &mdash; Colombo, Sri Lanka</h4>
+                            <span class="tl-date">Nov 2021 &ndash; Apr 2023</span>
+                        </div>
+                    </div>
+                    <ul class="arrow-list">
+                        <li><strong>Shift Leadership:</strong> Acted as Deputy Lead in a 24x7 SOC, supervising shift rotations for 8+ analysts</li>
+                        <li>Configured Microsoft Azure Defender and MCAS to harden cloud environments</li>
+                        <li>Deployed DarkTrace for behavioral anomaly detection across 300+ network segments</li>
+                        <li>Executed Container vulnerability assessments using Prisma Cloud</li>
+                        <li>Analyzed phishing campaigns and executed simulation training, reducing successful phishing rates by 45%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tl-item reveal">
+                <div class="tl-marker"><div class="tl-dot"></div></div>
+                <div class="tl-content hud-card">
+                    <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                    <div class="tl-header">
+                        <div>
+                            <h3>Trainee SOC Analyst</h3>
+                            <h4>CryptoGen (Pvt) Ltd &mdash; Colombo, Sri Lanka</h4>
+                            <span class="tl-date">Mar 2021 &ndash; Nov 2021</span>
+                        </div>
+                    </div>
+                    <ul class="arrow-list">
+                        <li>Handled 24x7 SOC alert triage, monitoring, and ServiceNow incident documentation</li>
+                        <li>Executed vulnerability scans via Nessus and monitored threats via McAfee ESM & FortiSIEM</li>
+                        <li>Analyzed endpoint telemetry using CrowdStrike Falcon EDR</li>
+                        <li>Trained in phishing email triage, malware analysis, and cloud security fundamentals</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 04 EDUCATION ===================== -->
+<section id="education" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">04</span>
+            <h2 class="sec-title typewriter" data-text="EDUCATION & CREDENTIALS">EDUCATION & CREDENTIALS</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="edu-grid">
+            <!-- Education -->
+            <div class="hud-card reveal">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3 class="card-head"><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
+                <div class="edu-item">
+                    <div class="edu-dot"></div>
+                    <div>
+                        <h4>BSc (Hons) in Information Technology</h4>
+                        <p class="edu-spec">Specialized in Cyber Security</p>
+                        <p class="edu-school">Sri Lanka Institute of Information Technology (SLIIT)</p>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-dot"></div>
+                    <div>
+                        <h4>GCE Advanced Level (Biology)</h4>
+                        <p class="edu-school">Dhammissara National School — Nattandiya</p>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-dot"></div>
+                    <div>
+                        <h4>GCE Ordinary Level</h4>
+                        <p class="edu-school">Dhammissara National School — Nattandiya</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="hud-card reveal">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3 class="card-head"><i class="fas fa-certificate"></i> CERTIFICATIONS</h3>
+                <ul class="cert-list">
+                    <li><span class="cert-badge">CEH</span> Certified Ethical Hacker (C|EH v12) — EC-Council</li>
+                    <li><span class="cert-badge" style="border-color:rgba(255,189,46,0.6);color:#ffbd2e">IN PROG</span> Practical Ethical Hacking — TCM Security</li>
+                    <li><span class="cert-badge" style="border-color:rgba(255,189,46,0.6);color:#ffbd2e">IN PROG</span> Red Hat Certified System Administrator (RHCSA)</li>
+                    <li><span class="cert-badge">PAM</span> CyberArk: Privileged Access Management &amp; L1 Trustee Exam</li>
+                    <li><span class="cert-badge">NSA</span> OPSWAT Network Security Associate</li>
+                    <li><span class="cert-badge">ECA</span> OPSWAT Endpoint Compliance Associate</li>
+                    <li><span class="cert-badge">VMDR</span> Qualys VMDR, Custom Assessment &amp; Remediation (CAR), TotalCloud</li>
+                    <li><span class="cert-badge">NSE1</span> Fortinet Network Security Expert Cert. 1 &amp; 2</li>
+                    <li><span class="cert-badge">ISO</span> SkillFront ISO/IEC 27001 Information Security Associate™</li>
+                    <li><span class="cert-badge">ISO</span> SkillFront ISO/IEC 27000 IT Service Management Associate™</li>
+                    <li><span class="cert-badge">CTI</span> arcX Cyber Threat Intelligence 101</li>
+                    <li><span class="cert-badge">FOR</span> Computer Forensics File Formats — Cybrary</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Professional Projects -->
+        <div class="section-header reveal" style="margin-top: 3rem;">
+            <h3 class="card-head sub-head"><i class="fas fa-code"></i> PROFESSIONAL PROJECTS</h3>
+        </div>
+        <div class="projects-grid reveal">
+            <div class="project-card hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <div class="proj-icon"><i class="fas fa-cloud"></i></div>
+                <h4>Cross-Cloud Automation — Qualys &amp; CrowdStrike CID Validation</h4>
+                <p>Multi-cloud Python script using Qualys API to map CrowdStrike CIDs, automatically tagging non-compliant instances and auditing asset hygiene across AWS, Azure, and GCP.</p>
+                <span class="proj-tag">Python &bull; Qualys API &bull; AWS &bull; Azure &bull; GCP</span>
+            </div>
+            <div class="project-card hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <div class="proj-icon"><i class="fas fa-server"></i></div>
+                <h4>Open-Source SIEM Build — Wazuh / Elastic Stack / TheHive</h4>
+                <p>Engineered a production-grade open-source SIEM. Integrated Wazuh telemetry into Elastic Stack with TheHive for case management, reducing manual alert triage times by 50%.</p>
+                <span class="proj-tag">Wazuh &bull; Elastic Stack &bull; TheHive &bull; SOC</span>
+            </div>
+        </div>
+
+        <!-- Academic Projects -->
+        <div class="section-header reveal" style="margin-top: 3rem;">
+            <h3 class="card-head sub-head"><i class="fas fa-laptop-code"></i> ACADEMIC PROJECTS</h3>
+        </div>
+        <div class="projects-grid reveal">
+            <div class="project-card hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <div class="proj-icon"><i class="fas fa-brain"></i></div>
+                <h4>Automated Forensics — Malware Analysis via ML</h4>
+                <p>Developed an automated malware classification system processing APIs, registry edits, and network connections via the Volatility framework and Machine Learning models.</p>
+                <span class="proj-tag">Final Year Project</span>
+            </div>
+            <div class="project-card hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <div class="proj-icon"><i class="fas fa-database"></i></div>
+                <h4>Database System for Library Management</h4>
+                <p>Engineered an Oracle SQL database architecture for a Library Management System, handling user schemas, inventory tracking, and checkout transactions.</p>
+                <span class="proj-tag">Database Engineering</span>
+            </div>
+            <div class="project-card hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <div class="proj-icon red-icon"><i class="fas fa-skull-crossbones"></i></div>
+                <h4>CVE-2019-6447 Exploitation Proof-of-Concept</h4>
+                <p>Isolated lab demonstration exploiting the ES File Explorer Open Port Vulnerability using Kali Linux against an Android 8 target VM.</p>
+                <span class="proj-tag red-tag">Penetration Testing</span>
+            </div>
+            <div class="project-card hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <div class="proj-icon red-icon"><i class="fas fa-search"></i></div>
+                <h4>Web Security Audit — grammarly.com</h4>
+                <p>Executed an authorized web security audit via HackerOne utilizing Burp Suite Pro, Nikto, and custom OSINT methodologies to map public vulnerabilities.</p>
+                <span class="proj-tag red-tag">Bug Bounty</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 05 PODCASTS ===================== -->
+<section id="podcasts" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">05</span>
+            <h2 class="sec-title typewriter" data-text="PODCASTS & TALKS">PODCASTS & TALKS</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="slider-nav-wrap">
+            <button id="slideLeft" class="slide-arrow left" aria-label="Previous Podcast"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-track-wrap">
+                <div id="podcastSlider" class="podcast-slider">
+                    <!-- 1. Feb 2026 -->
+                    <a href="https://youtu.be/pBscM7QyPTI" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb">
+                            <img src="https://img.youtube.com/vi/pBscM7QyPTI/hqdefault.jpg" alt="Ai Next watch Podcast">
+                            <div class="pod-play"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="pod-info">
+                            <span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                            <h3>Deep Dive into AI — Next watch Podcast</h3>
+                            <p>Discussing the future of Artificial Intelligence, emerging threats, and how it shapes the modern technological landscape.</p>
+                        </div>
+                    </a>
+
+                    <!-- 2. Dec 12, 2025 -->
+                    <a href="https://youtu.be/w6JFCvaOIj0" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/w6JFCvaOIj0/hqdefault.jpg" alt="Podcast - w6JFCvaOIj0">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>Can We Build an Emergency Alert System?</h3>
+                        <p>Discussing the feasibility and importance of a national emergency alert system in Sri Lanka.</p></div>
+                    </a>
+
+                    <!-- 3. Dec 10, 2025 -->
+                    <a href="https://youtu.be/j9RRopKn4oI" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/j9RRopKn4oI/hqdefault.jpg" alt="Podcast - j9RRopKn4oI">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>Don't Get Caught by Scammers When Claiming Subsidies</h3>
+                        <p>How fraudsters exploit government subsidy schemes — and how to protect yourself.</p></div>
+                    </a>
+
+                    <!-- 4. Jul 16, 2025 -->
+                    <a href="https://youtu.be/gM_6TbQpV40" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/gM_6TbQpV40/hqdefault.jpg" alt="Starlink Coming to Sri Lanka">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>Does Starlink Affect National Security?</h3>
+                        <p>A deep look at whether Starlink satellite internet poses risks to national security and critical infrastructure.</p></div>
+                    </a>
+
+                    <!-- 5. Jul 3, 2025 -->
+                    <a href="https://youtu.be/CHkeBAhdR0g" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/CHkeBAhdR0g/hqdefault.jpg" alt="18% Tax on Online Services">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>Organic Fertilizer No. 2 — Risks of Buying from AliExpress</h3>
+                        <p>Investigating counterfeit products and online marketplace fraud risks for consumers.</p></div>
+                    </a>
+
+                    <!-- 6. Jun 25, 2025 -->
+                    <a href="https://youtu.be/v2-5cYinOR8" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/v2-5cYinOR8/hqdefault.jpg" alt="How Hackers Can Be Dangerous">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>Are Google &amp; Facebook Getting Hacked Without Us Knowing?</h3>
+                        <p>Recent platform breaches exposed — and what it means for your personal data and privacy.</p></div>
+                    </a>
+
+                    <!-- 7. Jun 3, 2025 -->
+                    <a href="https://youtu.be/p1VLGbfpIV0" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/p1VLGbfpIV0/hqdefault.jpg" alt="Online Scams">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>The Latest Scam Targeting Men</h3>
+                        <p>Breaking down a new wave of social scams using manipulation and deception against unsuspecting victims.</p></div>
+                    </a>
+
+                    <!-- 8. May 30, 2025 -->
+                    <a href="https://youtu.be/nZlRTiTIBUE" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/nZlRTiTIBUE/hqdefault.jpg" alt="Are You Safe in Cyberspace?">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>The Pensions Dept That Got Hacked — and Learned Nothing</h3>
+                        <p>Examining a government data breach, the failures in security response, and why lessons were never learned.</p></div>
+                    </a>
+
+                    <!-- 9. Jun 10, 2024 -->
+                    <a href="https://youtu.be/6oHNTAtgsGw" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/6oHNTAtgsGw/hqdefault.jpg" alt="How to Be a Hacker">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>This Is How You Become a White Hat Hacker</h3>
+                        <p>A clear roadmap for entering the cybersecurity field as an ethical hacker — qualifications, skills, and career steps.</p></div>
+                    </a>
+
+                    <!-- 10. Jun 3, 2024 -->
+                    <a href="https://youtu.be/PMwItEfguvg" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/PMwItEfguvg/hqdefault.jpg" alt="4 Tools Not to Get Hacked">
+                        <div class="pod-play"><i class="fas fa-play"></i></div></div>
+                        <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                        <h3>4 Tools to Protect Yourself from Getting Hacked</h3>
+                        <p>Practical, easy-to-use security tools every person needs to know about.</p></div>
+                    </a>
+
+                    <!-- 11. May 22, 2024 -->
+                    <a href="https://youtu.be/wvXOPd3NbNQ" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <div class="pod-thumb">
+                            <img src="https://img.youtube.com/vi/wvXOPd3NbNQ/hqdefault.jpg" alt="Can Humans Be Hacked?">
+                            <div class="pod-play"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="pod-info">
+                            <span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
+                            <h3>Did You Know Humans Can Be Hacked?</h3>
+                            <p>How social engineering and psychology are used by hackers to compromise real people.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button id="slideRight" class="slide-arrow right" aria-label="Next Podcast"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 06 TOOLS ===================== -->
+<section id="tools" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">06</span>
+            <h2 class="sec-title typewriter" data-text="HANDS-ON EXPERIENCE">HANDS-ON EXPERIENCE</h2>
+            <div class="sec-line"></div>
+        </div>
+        <p class="tools-sub reveal">Tools and platforms I have deployed in live production security environments</p>
+
+        <div class="tools-categories reveal">
+            <!-- Endpoint & EDR -->
+            <div class="tool-cat-dense">
+                <div class="tool-cat-label-mini"><i class="fas fa-laptop"></i> Endpoint & EDR</div>
+                <div class="tool-pills-dense">
+                    <div class="tool-pill" data-prof="85%" data-desc="Managed deployments & alert tuning for enterprise endpoints.">CrowdStrike</div>
+                    <div class="tool-pill" data-prof="90%" data-desc="Automated threat hunting & remediation workflows.">SentinelOne</div>
+                    <div class="tool-pill" data-prof="80%" data-desc="Conducted deep forensic analysis on compromised nodes.">Cybereason</div>
+                    <div class="tool-pill" data-prof="88%" data-desc="SIEM integration & security operation orchestration.">McAfee ESM</div>
+                    <div class="tool-pill" data-prof="95%" data-desc="Email security gateway & threat protection policies.">Mimecast</div>
+                </div>
+            </div>
+            
+            <!-- SIEM & Frameworks -->
+            <div class="tool-cat-dense">
+                <div class="tool-cat-label-mini"><i class="fas fa-project-diagram"></i> SIEM &amp; Frameworks</div>
+                <div class="tool-pills-dense">
+                    <div class="tool-pill" data-prof="92%" data-desc="Open-source XDR/SIEM deployment & rule development.">Wazuh</div>
+                    <div class="tool-pill" data-prof="85%" data-desc="Log analysis, dashboarding, and ELK stack management.">Elastic Stack</div>
+                    <div class="tool-pill" data-prof="88%" data-desc="Incident response orchestration and case management.">TheHive</div>
+                    <div class="tool-pill" data-prof="90%" data-desc="Adversary tactic mapping & detection engineering.">MITRE ATT&amp;CK</div>
+                    <div class="tool-pill" data-prof="80%" data-desc="Compliance auditing and framework implementation.">ISO 27001/SOC 2</div>
+                </div>
+            </div>
+            
+            <!-- Vulnerability -->
+            <div class="tool-cat-dense">
+                <div class="tool-cat-label-mini"><i class="fas fa-search-minus"></i> Vuln Mgmt</div>
+                <div class="tool-pills-dense">
+                    <div class="tool-pill">Nessus</div>
+                    <div class="tool-pill">Qualys</div>
+                    <div class="tool-pill">Rapid7</div>
+                    <div class="tool-pill">SecurityScorecard</div>
+                </div>
+            </div>
+            
+            <!-- Web App & Pen Test -->
+            <div class="tool-cat-dense">
+                <div class="tool-cat-label-mini"><i class="fas fa-bug"></i> App/Pen Test</div>
+                <div class="tool-pills-dense">
+                    <div class="tool-pill" data-prof="85%" data-desc="Automated web vuln scanning & DAST operations.">Acunetix</div>
+                    <div class="tool-pill" data-prof="95%" data-desc="Advanced manual exploitation & proxy interception.">Burp</div>
+                    <div class="tool-pill" data-prof="80%" data-desc="Application security testing & automation.">OWASP ZAP</div>
+                    <div class="tool-pill" data-prof="98%" data-desc="Network discovery, script scanning & reconnaissance.">Nmap</div>
+                    <div class="tool-pill" data-prof="85%" data-desc="Breach and Attack Simulation (BAS) automation.">Cymulate</div>
+                </div>
+            </div>
+            
+            <!-- Cloud & Network -->
+            <div class="tool-cat-dense">
+                <div class="tool-cat-label-mini"><i class="fas fa-cloud"></i> Cloud/Network</div>
+                <div class="tool-pills-dense">
+                    <div class="tool-pill">AWS</div>
+                    <div class="tool-pill">Azure</div>
+                    <div class="tool-pill">GCP</div>
+                    <div class="tool-pill">Fortinet</div>
+                    <div class="tool-pill">Palo Alto</div>
+                    <div class="tool-pill">Prisma</div>
+                </div>
+            </div>
+            
+            <!-- Identity & Operations -->
+            <div class="tool-cat-dense">
+                <div class="tool-cat-label-mini"><i class="fas fa-fingerprint"></i> Identity/Ops</div>
+                <div class="tool-pills-dense">
+                    <div class="tool-pill" data-prof="88%" data-desc="Privileged Access Management (PAM) implementation.">CyberArk</div>
+                    <div class="tool-pill" data-prof="85%" data-desc="Zero Trust network access & cloud security gateway.">Zscaler</div>
+                    <div class="tool-pill" data-prof="82%" data-desc="Identity security & PAM orchestration at scale.">BeyondTrust</div>
+                    <div class="tool-pill" data-prof="90%" data-desc="Enterprise password management & vaulting.">Keeper</div>
+                    <div class="tool-pill" data-prof="85%" data-desc="Autonomous AI-driven threat response system.">Darktrace</div>
+                    <div class="tool-pill" data-prof="92%" data-desc="Project management & incident tracking.">Jira</div>
+                    <div class="tool-pill" data-prof="95%" data-desc="Security analytics and enterprise visibility platform.">Splunk</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SESSIONS ===================== -->
+<section id="sessions" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">07</span>
+            <h2 class="sec-title">GLIMPSES FROM SESSIONS</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="sessions-row reveal">
+            <!-- LinkedIn Official Embed Post 1 -->
+            <div class="li-embed-wrap hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7247139469676437505" 
+                    height="570" width="100%" frameborder="0" allowfullscreen="" 
+                    title="LinkedIn Post &mdash; Cybersecurity" loading="lazy"></iframe>
+            </div>
+            <!-- LinkedIn Official Embed Post 2 -->
+            <div class="li-embed-wrap hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7284226096500285440" 
+                    height="570" width="100%" frameborder="0" allowfullscreen="" 
+                    title="LinkedIn Post &mdash; Digital Age" loading="lazy"></iframe>
+            </div>
+            <!-- LinkedIn Official Embed Post 3 -->
+            <div class="li-embed-wrap hud-card">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7212676559906750465" 
+                    height="570" width="100%" frameborder="0" allowfullscreen="" 
+                    title="LinkedIn Post &mdash; Flickool" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== RECOMMENDATIONS ===================== -->
+<section id="recommendations" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">08</span>
+            <h2 class="sec-title">RECOMMENDATIONS</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="slider-nav-wrap">
+            <button id="slideLeftRec" class="slide-arrow left" aria-label="Previous Recommendation"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-track-wrap">
+                <div id="recSlider" class="podcast-slider">
+                    <!-- Recommendation 1: Sanali -->
+                    <div class="rec-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <i class="fas fa-quote-left rec-quote-icon"></i>
+                        <div class="rec-body">
+                            <p>Working with Sandaru at CryptoGen Pvt Ltd has been a pleasure, and he has continuously shown remarkable talent and commitment to our cyber security initiatives. Sandaru is extremely knowledgeable about the subtleties and intricacies of cyber security. He has been crucial in locating possible weak points in our systems and putting workable fixes in place to reduce risks.</p>
+                            <p>Apart from his technical proficiency, Sandaru excels in communication and collaborates well with others... No doubts I can highly recommend him.</p>
+                        </div>
+                        <div class="rec-author">
+                            <div class="li-avatar-css">SK</div>
+                            <div class="rec-author-info">
+                                <strong>Sanali Kaushalya</strong>
+                                <span>Country Director - Sri Lanka in Women in Tech® Global</span>
+                            </div>
+                            <i class="fab fa-linkedin rec-li-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 2: Saketha -->
+                    <div class="rec-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <i class="fas fa-quote-left rec-quote-icon"></i>
+                        <div class="rec-body">
+                            <p>I worked with Sandaru, who has solid theoretical and practical knowledge in offensive and defensive cybersecurity. His passion for the field is evident in his dedicated efforts to continually expand his knowledge and skill set. Sandaru actively contributes to the cybersecurity community by sharing his insights and expertise with others.</p>
+                        </div>
+                        <div class="rec-author">
+                            <div class="li-avatar-css">SP</div>
+                            <div class="rec-author-info">
+                                <strong>Saketha Pulasthi</strong>
+                                <span>Senior Security Analyst @ Flix11 | SAC Chair @ IEEECSSL</span>
+                            </div>
+                            <i class="fab fa-linkedin rec-li-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 3: Vishwa -->
+                    <div class="rec-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <i class="fas fa-quote-left rec-quote-icon"></i>
+                        <div class="rec-body">
+                            <p>I recommend Sandaru as a well experienced cybersecurity expert in this industry. He’s very keen to share his knowledge among other colleagues. When it comes to the job, a responsible and innovative person whose eagerly performing his tasks in a well organized manner.</p>
+                        </div>
+                        <div class="rec-author">
+                            <div class="li-avatar-css">VL</div>
+                            <div class="rec-author-info">
+                                <strong>Vishwa Liyanage</strong>
+                                <span>Cybersecurity engineer | Graduate</span>
+                            </div>
+                            <i class="fab fa-linkedin rec-li-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommendation 4: Vidusara -->
+                    <div class="rec-card hud-card">
+                        <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                        <i class="fas fa-quote-left rec-quote-icon"></i>
+                        <div class="rec-body">
+                            <p>Sandaru is a person with a great motivation and a mind set of positivity. Any task he is been assigned will complete flawlessly. A very humble colleague to work with as well as a dedicated team player. Regardless of the tough situations we had to face as a team, Sandaru did a superb contribution towards the success of each and every challenge... Highly recommended without a single doubt!</p>
+                        </div>
+                        <div class="rec-author">
+                            <div class="li-avatar-css">VA</div>
+                            <div class="rec-author-info">
+                                <strong>Vidusara Alagiyawadu</strong>
+                                <span>Senior Information Security Consultant</span>
+                            </div>
+                            <i class="fab fa-linkedin rec-li-icon"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <button id="slideRightRec" class="slide-arrow right" aria-label="Next Recommendation"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sec-num">09</span>
+            <h2 class="sec-title">CONTACT & INTERESTS</h2>
+            <div class="sec-line"></div>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-block hud-card reveal">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3 class="card-head"><i class="fas fa-satellite-dish"></i> GET IN TOUCH</h3>
+                <ul class="contact-list">
+                    <li><span class="ci-icon"><i class="fas fa-map-marker-alt"></i></span><span>Nugegoda, Sri Lanka</span></li>
+                    <li><span class="ci-icon"><i class="fas fa-phone"></i></span><span>+94 77 988 3227</span></li>
+                    <li><span class="ci-icon"><i class="fas fa-envelope"></i></span><a href="mailto:hansakasandaru99@gmail.com">hansakasandaru99@gmail.com</a></li>
+                    <li><span class="ci-icon"><i class="fab fa-linkedin"></i></span><a href="https://linkedin.com/in/sandarufernando" target="_blank" rel="noopener noreferrer">linkedin.com/in/sandarufernando</a></li>
+                </ul>
+                <a href="https://drive.usercontent.google.com/uc?id=1GJnGrODG_xE860BTth9FI9noUZIAVSBI&export=download" class="btn-cyber mt-btn"><i class="fas fa-file-pdf"></i> Download CV</a>
+            </div>
+
+            <div class="contact-block hud-card reveal">
+                <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+                <h3 class="card-head"><i class="fas fa-star"></i> EXTRA CURRICULAR </h3>
+                <ul class="arrow-list">
+                    <li>Consultant & Educator | NIBM CertHub — Mentoring candidates for ISC2 CC via Cyber Kickstart</li>
+                    <li>Guest Lecturer | Uwa Wellassa University, KDU</li>
+                    <li>Committee | Cyber Security Community of SLIIT</li>
+                    <li>Committee | SLIIT Rotaract Club</li>
+                    <li>Diploma in Music (Violin)</li>
+                    <li>Inter-school Karate Championship (Bronze)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <span class="logo-mark small glitch-effect">[SF]</span>
+        <p class="footer-text glitch-effect">© 2026 Sandaru Fernando — Cybersecurity Professional</p>
+        <div class="footer-socials">
+            <a href="https://linkedin.com/in/sandarufernando" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:hansakasandaru99@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- NEW: Easter Egg UI -->
+<div class="easter-egg-btn" id="easterEggTrigger">
+    <i class="fas fa-lock"></i>
+</div>
+
+<div class="access-overlay" id="accessOverlay">
+    <div class="access-terminal">
+        <div class="hud-topbar" style="margin-bottom: 2rem;">
+            <div class="hud-dots"><span></span><span></span><span></span></div>
+            <span class="hud-title">DECRYPT_ALGORITHM // running...</span>
+        </div>
+        <div id="decrypt-lines"></div>
+        <h1 class="access-granted-title glitch-text" id="accessTitle" style="display:none; text-align: center; color: var(--cyan); font-size: 3rem; margin-top: 2rem; text-shadow: 0 0 20px cyan;">ACCESS GRANTED</h1>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+// BG canvas animation
+(function() {
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    let mouse = { x: null, y: null, radius: 100 }; // Mouse object for minimal interaction
+
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    for (let i = 0; i < 80; i++) {
+        particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            r: Math.random() * 2.0 + 0.8, // Slightly larger base radius
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            a: Math.random() * 0.4 + 0.3 // Higher base opacity
+        });
+    }
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach((p, i) => {
+            // Mouse Repulsion logic
+            if (mouse.x != null && mouse.y != null) {
+                let dxMouse = p.x - mouse.x;
+                let dyMouse = p.y - mouse.y;
+                let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                
+                // Draw connecting line to mouse tip!
+                if (distMouse < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    // Fade line out the further it gets from mouse
+                    ctx.strokeStyle = `rgba(0, 229, 255, ${0.25 * (1 - distMouse / 150)})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+
+                if (distMouse < mouse.radius) {
+                    let forceDirectionX = dxMouse / distMouse;
+                    let forceDirectionY = dyMouse / distMouse;
+                    let force = (mouse.radius - distMouse) / mouse.radius;
+                    // Apply subtle repulsion (0.5 max speed injection)
+                    p.x += forceDirectionX * force * 0.5;
+                    p.y += forceDirectionY * force * 0.5;
+                }
+            }
+
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+            
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,229,255,${p.a})`; ctx.fill();
+            
+            particles.forEach((q, j) => {
+                if (i !== j) {
+                    const dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx*dx + dy*dy);
+                    if (d < 120) {
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+                        // Make links slightly brighter if near mouse
+                        let linkAlpha = 0.1 * (1 - d / 120); // Slightly brighter base connections
+                        if (mouse.x != null && mouse.y != null) {
+                             let dToMouse = Math.sqrt(Math.pow(p.x - mouse.x, 2) + Math.pow(p.y - mouse.y, 2));
+                             if (dToMouse < parseInt(mouse.radius) + 20) linkAlpha = 0.25 * (1 - d / 120);
+                        }
+                        ctx.strokeStyle = `rgba(0,229,255,${linkAlpha})`;
+                        ctx.lineWidth = 0.4; ctx.stroke();
+                    }
+                }
+            });
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+// ==========================================
+// Ambient Interactive Glow Background
+// ==========================================
+(function() {
+    const canvas = document.getElementById('matrix-bg');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    let w, h;
+    let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    
+    function init() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('mousemove', (e) => {
+        target.x = e.clientX;
+        target.y = e.clientY;
+    });
+    
+    function drawGlow() {
+        ctx.clearRect(0, 0, w, h);
+        
+        // Smooth ease toward mouse
+        mouse.x += (target.x - mouse.x) * 0.05;
+        mouse.y += (target.y - mouse.y) * 0.05;
+        
+        // Draw radial glow
+        const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 600);
+        gradient.addColorStop(0, 'rgba(0, 229, 255, 0.08)'); // Very subtle cyan core
+        gradient.addColorStop(0.5, 'rgba(0, 229, 255, 0.02)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, w, h);
+        
+        requestAnimationFrame(drawGlow);
+    }
+    
+    init();
+    window.addEventListener('resize', init);
+    drawGlow();
+})();
+
+// Glitch effect
+document.querySelectorAll('.glitch-text').forEach(el => {
+    setInterval(() => { el.style.textShadow = `${(Math.random()-0.5)*6}px 0 #ff0055, ${(Math.random()-0.5)*6}px 0 #00e5ff`; setTimeout(() => el.style.textShadow = '', 80); }, 3000 + Math.random()*2000);
+});
+
+// Scroll reveal & Typewriter
+// Reveal Animations & Text Decrypt
+const observerOptions = { threshold: 0.1 };
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            
+            // Trigger text decrypt if it has the class
+            const decryptEls = entry.target.querySelectorAll('.decrypt-on-scroll');
+            decryptEls.forEach(el => decryptText(el));
+            
+            // Trigger typewriter if it has one
+            const tw = entry.target.querySelector('.typewriter');
+            if (tw && !tw.classList.contains('typed')) {
+                tw.classList.add('typed');
+                const txt = tw.getAttribute('data-text');
+                tw.textContent = '';
+                let i = 0;
+                const typeWriter = setInterval(() => {
+                    if (i < txt.length) {
+                        tw.textContent += txt.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typeWriter);
+                    }
+                }, 50);
+            }
+            
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+function decryptText(el) {
+    const targetText = el.getAttribute('data-text') || el.innerText;
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+";
+    let iteration = 0;
+    
+    const interval = setInterval(() => {
+        el.innerText = targetText.split("").map((letter, index) => {
+            if (index < iteration) return targetText[index];
+            return chars[Math.floor(Math.random() * chars.length)];
+        }).join("");
+        
+        if (iteration >= targetText.length) clearInterval(interval);
+        iteration += 1 / 3;
+    }, 30);
+}
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .timeline-item').forEach(el => revealObserver.observe(el));
+
+// Podcast slider
+const slider = document.getElementById('podcastSlider');
+document.getElementById('slideLeft').addEventListener('click', () => slider.scrollBy({ left: -340, behavior: 'smooth' }));
+document.getElementById('slideRight').addEventListener('click', () => slider.scrollBy({ left: 340, behavior: 'smooth' }));
+
+// Recommendations slider
+const recSlider = document.getElementById('recSlider');
+if (recSlider) {
+    document.getElementById('slideLeftRec').addEventListener('click', () => recSlider.scrollBy({ left: -380, behavior: 'smooth' }));
+    document.getElementById('slideRightRec').addEventListener('click', () => recSlider.scrollBy({ left: 380, behavior: 'smooth' }));
+}
+
+// ── Merged, rAF-throttled scroll handler ─────────────────────────
+const nav = document.getElementById('main-nav');
+const navActivePath = document.getElementById('nav-active-path');
+const sections = document.querySelectorAll('section');
+let lastSection = 'HOME';
+let scrollTicking = false;
+
+function onScroll() {
+    const sy = window.scrollY;
+    // Nav scrolled class
+    nav.classList.toggle('scrolled', sy > 60);
+    // Scroll spy
+    if (navActivePath) {
+        const atBottom = (window.innerHeight + sy) >= document.documentElement.scrollHeight - 50;
+        let current = 'HOME';
+        if (atBottom) {
+            // Force last section when near page bottom
+            current = sections[sections.length - 1].getAttribute('id').toUpperCase();
+        } else {
+            sections.forEach(sec => {
+                if (sy >= sec.offsetTop - 150) current = sec.getAttribute('id').toUpperCase();
+            });
+        }
+        if (current !== lastSection) {
+            navActivePath.textContent = current;
+            lastSection = current;
+            // Glow the matching nav link
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                const href = a.getAttribute('href');
+                a.classList.toggle('nav-active', href === '#' + current.toLowerCase());
+            });
+        }
+    }
+    scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!scrollTicking) { requestAnimationFrame(onScroll); scrollTicking = true; }
+}, { passive: true });
+
+// Set date in hero terminal
+const dateEl = document.getElementById('current-date');
+if (dateEl) dateEl.textContent = new Date().toDateString();
+
+// Hamburger menu
+const ham = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+ham.addEventListener('click', () => { ham.classList.toggle('active'); navLinks.classList.toggle('open'); });
+
+// Hacker Terminal Feed Cycler
+const feedData = [
+    '<span class="t-time hl-red">[FUTURE]</span> <strong class="t-badge hl-blue">[EVENT]</strong> <span class="t-text">22nd March - Guest speaker "AI, Cyber Security and content security" - Colombo Creative Academy.</span>',
+    '<span class="t-time hl-blue">[LIVE]</span> <strong class="t-badge hl-red">[NEW_RECORD]</strong> <span class="t-text">Achieved 15+ hours of curated technical cyber awareness podcasts on air.</span>',
+    '<span class="t-time hl-blue">[SYS]</span> <strong class="t-badge hl-blue">[APPOINTMENT]</strong> <span class="t-text">Now guiding newcomers as Consultant Educator at NIBM CertHub.</span>',
+    '<span class="t-time hl-blue">[SYS]</span> <strong class="t-badge hl-blue">[IMPACT]</strong> <span class="t-text">Physically educating 1,000+ students across workshops and live training sessions.</span>',
+    '<span class="t-time hl-blue">[LOG]</span> <strong class="t-badge hl-blue">[CERTIFICATION]</strong> <span class="t-text">Currently pursuing TCM Practical Ethical Hacking (PEH) & Red Hat RHCSA.</span>'
+];
+
+const feedContainer = document.getElementById('syslog-feed');
+if (feedContainer) {
+    let lines = [...feedData];
+    
+    function renderFeed() {
+        feedContainer.innerHTML = `
+            <div class="t-line t-latest">${lines[0]}</div>
+            <div class="t-line t-prev">${lines[1]}</div>
+            <div class="t-line t-old">${lines[2]}</div>
+        `;
+    }
+    
+    setInterval(() => {
+        // Rotate array: move last item to front
+        const last = lines.pop();
+        lines.unshift(last);
+        
+        // Add a temporary transition class to old lines to fade them out smoothly
+        const currentLines = feedContainer.querySelectorAll('.t-line');
+        if(currentLines.length === 3) {
+            currentLines[0].className = 't-line t-prev';
+            currentLines[1].className = 't-line t-old';
+            currentLines[2].style.opacity = '0';
+        }
+        
+        // Render new shifted state after a brief CSS transition period
+        setTimeout(renderFeed, 500);
+        
+    }, 4500);
+    
+    renderFeed();
+}
+// Breach Mode Toggle
+const breachBtn = document.getElementById('breachToggle');
+if (breachBtn) {
+    breachBtn.addEventListener('click', () => {
+        const isBreach = document.body.classList.toggle('breach-mode');
+        const span = breachBtn.querySelector('span');
+        const icon = breachBtn.querySelector('i');
+        breachBtn.setAttribute('aria-pressed', isBreach ? 'true' : 'false'); // accessibility
+        if (isBreach) {
+            span.textContent = 'BREACH';
+            icon.className = 'fas fa-skull';
+        } else {
+            span.textContent = 'SECURE';
+            icon.className = 'fas fa-radiation';
+        }
+    });
+}
+
+// ── Animated Stat Counters ─────────────────────────────────────────
+function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const duration = 1500;
+    const step = Math.ceil(duration / target);
+    let current = 0;
+    const timer = setInterval(() => {
+        current += 1;
+        el.textContent = current + (current >= target ? '+' : '');
+        if (current >= target) clearInterval(timer);
+    }, step);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// Terminal Easter Egg Logic
+const termOverlay = document.getElementById('terminal-overlay');
+const termInput = document.getElementById('term-input');
+const termOutput = document.getElementById('term-output');
+const closeTerm = document.getElementById('closeTerminal');
+
+function openTerminal() {
+    termOverlay.classList.add('active');
+    setTimeout(() => termInput.focus(), 500);
+}
+
+function closeTerminal() {
+    termOverlay.classList.remove('active');
+}
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === '`' || e.key === '~') {
+        e.preventDefault();
+        termOverlay.classList.contains('active') ? closeTerminal() : openTerminal();
+    }
+    if (e.key === 'Escape' && termOverlay.classList.contains('active')) {
+        closeTerminal();
+    }
+});
+
+closeTerm.addEventListener('click', closeTerminal);
+
+termInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        const cmd = termInput.value.trim().toLowerCase();
+        termInput.value = '';
+        executeCommand(cmd);
+    }
+});
+
+function executeCommand(cmd) {
+    if (!cmd) return;
+    
+    // Echo command
+    const line = document.createElement('div');
+    line.className = 'term-line';
+    line.innerHTML = `<span class="term-prompt">sandaru@root:~$</span> <span class="term-cmd">${cmd}</span>`;
+    termOutput.appendChild(line);
+    
+    const output = document.createElement('div');
+    output.className = 'term-line';
+    
+    switch (cmd) {
+        case 'help':
+            output.innerHTML = `
+                <div class="term-help-item"><span class="term-help-cmd">whoami</span><span>Display current user profile.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">ls skills</span><span>List modular technical expertise.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">sudo hire</span><span>Enable recruitment protocol.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">clear</span><span>Flush the terminal buffer.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">exit</span><span>Terminate remote session.</span></div>
+            `;
+            break;
+        case 'whoami':
+            output.innerText = "NAME: Sandaru Fernando | ROLE: Cybersecurity Specialist | STATUS: ACTING_ROOT";
+            break;
+        case 'ls skills':
+            output.innerText = "CrowdStrike, SentinelOne, Burp, Nmap, Splunk, Azure, AWS, Nessus, MITRE ATT&CK...";
+            break;
+        case 'sudo hire':
+            output.innerText = "Recruitment protocol activated. Redirecting to comms layer...";
+            window.location.href = "mailto:hansakasandaru99@gmail.com";
+            break;
+        case 'clear':
+            termOutput.innerHTML = '<div class="term-line">Terminal buffer cleared.</div>';
+            return;
+        case 'exit':
+            closeTerminal();
+            return;
+        default:
+            output.innerText = `Command not found: ${cmd}. Type 'help' for available ops.`;
+    }
+    
+    termOutput.appendChild(output);
+    termOutput.scrollTop = termOutput.scrollHeight;
+}
+</script>
+</body>
+</html>

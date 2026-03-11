@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — CONNECTION LOST | Sandaru Fernando</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --primary: #00e5ff;
+            --red: #ff1744;
+            --bg: #050810;
+            --card: #0a0f1e;
+            --border: rgba(0,229,255,0.15);
+            --muted: #4a6080;
+            --font-code: 'Fira Code', monospace;
+            --font-head: 'Orbitron', monospace;
+        }
+        body {
+            background: var(--bg);
+            color: #c8d8e8;
+            font-family: var(--font-code);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        /* Scanlines */
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background: repeating-linear-gradient(to bottom, transparent 0px, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
+            pointer-events: none; z-index: 999;
+        }
+        .screen {
+            width: min(700px, 95vw);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 0 60px rgba(0,229,255,0.08), 0 0 120px rgba(255,23,68,0.05);
+            overflow: hidden;
+            animation: flicker 8s linear infinite;
+        }
+        @keyframes flicker {
+            0%, 95%, 100% { opacity: 1; }
+            96% { opacity: 0.92; }
+            97% { opacity: 1; }
+            98% { opacity: 0.95; }
+        }
+        .topbar {
+            background: rgba(0,0,0,0.5);
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot.r { background: var(--red); }
+        .dot.y { background: #ffd600; }
+        .dot.g { background: #00e676; }
+        .topbar-title { color: var(--muted); font-size: 0.75rem; margin-left: 0.5rem; letter-spacing: 1px; }
+        .body { padding: 2rem; }
+        .err-code {
+            font-family: var(--font-head);
+            font-size: clamp(4rem, 12vw, 7rem);
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(255,23,68,0.4);
+            letter-spacing: 4px;
+        }
+        .err-label {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            color: var(--primary);
+            letter-spacing: 3px;
+            margin-top: 0.3rem;
+            text-shadow: 0 0 15px rgba(0,229,255,0.4);
+        }
+        .divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+        .terminal { font-size: 0.82rem; line-height: 1.9; }
+        .prompt { color: var(--primary); }
+        .cmd { color: #fff; }
+        .out-err { color: var(--red); }
+        .out-info { color: var(--muted); }
+        .out-ok { color: var(--primary); }
+        .blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .actions { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn {
+            font-family: var(--font-code);
+            font-size: 0.82rem;
+            padding: 0.6rem 1.4rem;
+            border: 1px solid var(--primary);
+            background: rgba(0,229,255,0.05);
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .btn:hover { background: rgba(0,229,255,0.12); box-shadow: 0 0 15px rgba(0,229,255,0.2); }
+        .btn.red { border-color: var(--red); color: var(--red); background: rgba(255,23,68,0.05); }
+        .btn.red:hover { background: rgba(255,23,68,0.12); box-shadow: 0 0 15px rgba(255,23,68,0.2); }
+    </style>
+</head>
+<body>
+<div class="screen">
+    <div class="topbar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span class="topbar-title">SECURE_CON_V2.0 // ERROR_HANDLER</span>
+    </div>
+    <div class="body">
+        <div class="err-code">404</div>
+        <div class="err-label">CONNECTION_LOST</div>
+        <div class="divider"></div>
+        <div class="terminal">
+            <div><span class="prompt">sandaru@root:~$</span> <span class="cmd">trace-route --target $REQUEST_PATH</span></div>
+            <div class="out-err">[ERR]  Route not found in registered endpoints.</div>
+            <div class="out-info">[SYS]  Packet dropped. No response from target node.</div>
+            <div class="out-info">[LOG]  HTTP 404 — The resource you requested does not exist.</div>
+            <div class="out-err">[WARN] Potential path traversal or broken link detected.</div>
+            <div class="out-ok">[SYS]  Recommend returning to base: /index.html</div>
+            <div><span class="prompt">sandaru@root:~$</span> <span class="blink">█</span></div>
+        </div>
+        <div class="actions">
+            <a href="/" class="btn">⟵ Return to Base</a>
+            <a href="/#contact" class="btn red">⚡ Report Issue</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
