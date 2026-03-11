@@ -1063,8 +1063,8 @@ img { max-width: 100%; display: block; }
 /* ==========================================
    RESPONSIVE
    ========================================== */
-/* ── Laptops (≤1200px) ── */
-@media (max-width: 1200px) {
+/* ── Laptops (≤1360px) ── */
+@media (max-width: 1360px) {
     .nav-center { display: none; }
 }
 
