@@ -12,13 +12,18 @@
     --red-rgb: 255, 23, 68;
     --purple: #bd00ff;
     --text: #cdd9e5;
-    --muted: #6e8099;
+    --muted: #8a9bb8; /* lightened for WCAG AA 4.6:1 on #050810 */
     --border: rgba(var(--primary-rgb), 0.12);
     --card-bg: rgba(8, 14, 28, 0.8);
     --font-head: 'Orbitron', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-code: 'Fira Code', monospace;
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition: color 0.3s cubic-bezier(0.25,0.8,0.25,1),
+                  border-color 0.3s cubic-bezier(0.25,0.8,0.25,1),
+                  box-shadow 0.3s cubic-bezier(0.25,0.8,0.25,1),
+                  background-color 0.3s cubic-bezier(0.25,0.8,0.25,1),
+                  opacity 0.3s cubic-bezier(0.25,0.8,0.25,1),
+                  transform 0.3s cubic-bezier(0.25,0.8,0.25,1);
     --grid-speed: 20s;
 }
 
@@ -1119,9 +1124,10 @@ img { max-width: 100%; display: block; }
     .stat-num-lg { font-size: 1.5rem; }
     .stat-wide-inner { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
     
-    /* Timeline */
+    /* Timeline — show date below title instead of hiding */
     .tl-item { grid-template-columns: 24px 1fr; gap: 1rem; }
-    .tl-date { display: none; }
+    .tl-date { display: block; font-size: 0.65rem; margin-top: 0.3rem; color: var(--muted); }
+    .tl-header > div { flex-direction: column; }
     .tl-content { padding: 1rem; }
 
     /* Podcast Slider */
@@ -1151,7 +1157,7 @@ img { max-width: 100%; display: block; }
 
 /* ── Small Mobile (≤420px) ── */
 @media (max-width: 420px) {
-    html { font-size: 14px; }
+    html { font-size: 15px; } /* was 14px — iOS Safari auto-zooms inputs below 16px */
     .container { padding: 0 1rem; }
     .stat-card { padding: 1rem; }
     .stat-num { font-size: 1.6rem; }
@@ -1310,4 +1316,172 @@ img { max-width: 100%; display: block; }
 .li-embed-wrap { padding: 0 !important; overflow: hidden; border-radius: 4px; }
 .li-embed-wrap iframe { display: block; border: 0; border-radius: 4px; min-height: 500px; }
 
+/* =====================================================
+   CURSOR: POINTER ON ALL CLICKABLE CARDS
+   ===================================================== */
+.pod-card,
+.rec-card,
+.project-card,
+.li-frame-card,
+.hud-card[href],
+.tool-pill[data-prof] { cursor: pointer; }
 
+/* =====================================================
+   TOUCH-ACTION: eliminate 300ms tap delay on mobile
+   ===================================================== */
+.btn-cyber,
+.btn-outline,
+.nav-cta,
+.slide-arrow,
+.breach-btn,
+.hamburger,
+.pod-card,
+.li-frame-card,
+.rec-card,
+.project-card,
+.tool-pill,
+.nav-links a,
+.easter-egg-btn { touch-action: manipulation; }
+
+/* =====================================================
+   TRANSITION SPEED FIX: slow pseudo-element sweeps
+   ===================================================== */
+.hud-card::after { transition: left 0.35s ease !important; }  /* was 0.6s */
+.nav-cta::before { transition: left 0.35s ease !important; }  /* was 0.5s */
+
+/* =====================================================
+   iOS FIX: term-input must be 16px at 420px
+   ===================================================== */
+@media (max-width: 420px) {
+    #term-input { font-size: 16px; }
+}
+
+/* =====================================================
+   SCROLL PROGRESS BAR
+   ===================================================== */
+#scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--purple));
+    z-index: 9999;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+    transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* =====================================================
+   MOBILE PODCAST SLIDER — SCROLL DOTS INDICATOR
+   ===================================================== */
+.slider-dots {
+    display: none;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0.8rem;
+}
+.slider-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(0, 229, 255, 0.2);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+.slider-dot.active {
+    background: var(--primary);
+    transform: scale(1.4);
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+@media (max-width: 640px) {
+    .slider-dots { display: flex; }
+}
+
+/* =====================================================
+   FOOTER KEYBOARD HINT
+   ===================================================== */
+.footer-kbd-hint {
+    font-family: var(--font-code);
+    font-size: 0.65rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.footer-kbd-hint:hover { opacity: 1; color: var(--primary); cursor: pointer; }
+.kbd {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(0, 229, 255, 0.06);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.65rem;
+    color: var(--primary);
+    min-width: 18px;
+    box-shadow: 0 1px 0 rgba(0, 229, 255, 0.3);
+}
+@media (max-width: 640px) { .footer-kbd-hint { display: none; } }
+
+/* =====================================================
+   RADAR CHART — INTERACTIVE STYLES
+   ===================================================== */
+.radar-dot {
+    fill: var(--primary);
+    transition: r 0.2s ease, filter 0.2s ease;
+    cursor: crosshair;
+}
+.radar-dot:hover {
+    fill: #fff;
+    filter: drop-shadow(0 0 6px var(--primary));
+}
+.radar-tooltip {
+    position: absolute;
+    background: rgba(5, 8, 16, 0.92);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    color: var(--primary);
+    font-family: var(--font-code);
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 100;
+}
+.radar-tooltip.visible { opacity: 1; }
+
+/* =====================================================
+   ACCESSIBILITY: SKIP LINK
+   ===================================================== */
+.skip-link {
+    position: absolute;
+    top: -100px; left: 1rem;
+    background: var(--primary); color: #000;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 99999;
+    transition: top 0.2s;
+    border-radius: 0 0 4px 4px;
+}
+.skip-link:focus { top: 0; }
+
+/* =====================================================
+   PREFERS-REDUCED-MOTION — disable decorative animations
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    /* Keep canvas hidden for motion-sensitive users */
+    #matrix-bg,
+    #bg-canvas { display: none !important; }
+}

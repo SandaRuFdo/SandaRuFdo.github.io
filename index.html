@@ -19,12 +19,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+<a href="#home" class="skip-link">Skip to main content</a>
+<div id="scroll-progress" aria-hidden="true"></div>
 
 <!-- Terminal Overlay -->
 <div id="terminal-overlay">
     <div class="term-header">
         <div class="term-title">SECURE_CON_V2.0 // SYSTEM_ROOT</div>
-        <button class="term-close" id="closeTerminal">&times;</button>
+        <button class="term-close" id="closeTerminal" aria-label="Close terminal">&times;</button>
     </div>
     <div class="term-content" id="term-output">
         <div class="term-line">Welcome to the encrypted terminal. Press 'ESC' or click 'X' to close.</div>
@@ -75,7 +77,9 @@
                 </button>
             </li>
         </ul>
-        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
 
@@ -565,7 +569,7 @@
                     <a href="https://youtu.be/pBscM7QyPTI" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
                         <div class="pod-thumb">
-                            <img src="https://img.youtube.com/vi/pBscM7QyPTI/hqdefault.jpg" alt="Ai Next watch Podcast">
+                            <img src="https://img.youtube.com/vi/pBscM7QyPTI/hqdefault.jpg" alt="Deep Dive into AI — Next watch Podcast" width="480" height="270" loading="lazy">
                             <div class="pod-play"><i class="fas fa-play"></i></div>
                         </div>
                         <div class="pod-info">
@@ -578,7 +582,7 @@
                     <!-- 2. Dec 12, 2025 -->
                     <a href="https://youtu.be/w6JFCvaOIj0" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/w6JFCvaOIj0/hqdefault.jpg" alt="Podcast - w6JFCvaOIj0">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/w6JFCvaOIj0/hqdefault.jpg" alt="Can We Build an Emergency Alert System? Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>Can We Build an Emergency Alert System?</h3>
@@ -588,7 +592,7 @@
                     <!-- 3. Dec 10, 2025 -->
                     <a href="https://youtu.be/j9RRopKn4oI" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/j9RRopKn4oI/hqdefault.jpg" alt="Podcast - j9RRopKn4oI">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/j9RRopKn4oI/hqdefault.jpg" alt="Don't Get Caught by Scammers When Claiming Subsidies Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>Don't Get Caught by Scammers When Claiming Subsidies</h3>
@@ -598,7 +602,7 @@
                     <!-- 4. Jul 16, 2025 -->
                     <a href="https://youtu.be/gM_6TbQpV40" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/gM_6TbQpV40/hqdefault.jpg" alt="Starlink Coming to Sri Lanka">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/gM_6TbQpV40/hqdefault.jpg" alt="Does Starlink Affect National Security? Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>Does Starlink Affect National Security?</h3>
@@ -608,7 +612,7 @@
                     <!-- 5. Jul 3, 2025 -->
                     <a href="https://youtu.be/CHkeBAhdR0g" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/CHkeBAhdR0g/hqdefault.jpg" alt="18% Tax on Online Services">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/CHkeBAhdR0g/hqdefault.jpg" alt="18% Tax on Online Services — Organic Fertilizer No.2 Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>Organic Fertilizer No. 2 — Risks of Buying from AliExpress</h3>
@@ -618,7 +622,7 @@
                     <!-- 6. Jun 25, 2025 -->
                     <a href="https://youtu.be/v2-5cYinOR8" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/v2-5cYinOR8/hqdefault.jpg" alt="How Hackers Can Be Dangerous">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/v2-5cYinOR8/hqdefault.jpg" alt="Are Google and Facebook Getting Hacked Without Us Knowing? Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>Are Google &amp; Facebook Getting Hacked Without Us Knowing?</h3>
@@ -628,7 +632,7 @@
                     <!-- 7. Jun 3, 2025 -->
                     <a href="https://youtu.be/p1VLGbfpIV0" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/p1VLGbfpIV0/hqdefault.jpg" alt="Online Scams">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/p1VLGbfpIV0/hqdefault.jpg" alt="The Latest Scam Targeting Men Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>The Latest Scam Targeting Men</h3>
@@ -638,7 +642,7 @@
                     <!-- 8. May 30, 2025 -->
                     <a href="https://youtu.be/nZlRTiTIBUE" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/nZlRTiTIBUE/hqdefault.jpg" alt="Are You Safe in Cyberspace?">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/nZlRTiTIBUE/hqdefault.jpg" alt="The Pensions Dept That Got Hacked Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>The Pensions Dept That Got Hacked — and Learned Nothing</h3>
@@ -648,7 +652,7 @@
                     <!-- 9. Jun 10, 2024 -->
                     <a href="https://youtu.be/6oHNTAtgsGw" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/6oHNTAtgsGw/hqdefault.jpg" alt="How to Be a Hacker">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/6oHNTAtgsGw/hqdefault.jpg" alt="This Is How You Become a White Hat Hacker Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>This Is How You Become a White Hat Hacker</h3>
@@ -658,7 +662,7 @@
                     <!-- 10. Jun 3, 2024 -->
                     <a href="https://youtu.be/PMwItEfguvg" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
-                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/PMwItEfguvg/hqdefault.jpg" alt="4 Tools Not to Get Hacked">
+                        <div class="pod-thumb"><img src="https://img.youtube.com/vi/PMwItEfguvg/hqdefault.jpg" alt="4 Tools to Protect Yourself from Getting Hacked Podcast" width="480" height="270" loading="lazy">
                         <div class="pod-play"><i class="fas fa-play"></i></div></div>
                         <div class="pod-info"><span class="pod-label"><i class="fab fa-youtube"></i> Podcast</span>
                         <h3>4 Tools to Protect Yourself from Getting Hacked</h3>
@@ -669,7 +673,7 @@
                     <a href="https://youtu.be/wvXOPd3NbNQ" target="_blank" rel="noopener noreferrer" class="pod-card hud-card">
                         <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
                         <div class="pod-thumb">
-                            <img src="https://img.youtube.com/vi/wvXOPd3NbNQ/hqdefault.jpg" alt="Can Humans Be Hacked?">
+                            <img src="https://img.youtube.com/vi/wvXOPd3NbNQ/hqdefault.jpg" alt="Did You Know Humans Can Be Hacked? Podcast" width="480" height="270" loading="lazy">
                             <div class="pod-play"><i class="fas fa-play"></i></div>
                         </div>
                         <div class="pod-info">
@@ -679,7 +683,11 @@
                         </div>
                     </a>
                 </div>
+            <!-- Mobile scroll indicator dots -->
+            <div class="slider-dots" id="podcastDots" aria-label="Podcast slider position">
+                <!-- Generated by JS -->
             </div>
+        </div>
             <button id="slideRight" class="slide-arrow right" aria-label="Next Podcast"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
@@ -957,17 +965,20 @@
     <div class="footer-inner">
         <span class="logo-mark small glitch-effect">[SF]</span>
         <p class="footer-text glitch-effect">© 2026 Sandaru Fernando — Cybersecurity Professional</p>
+        <button class="footer-kbd-hint" id="footerTermHint" aria-label="Open terminal with backtick key">
+            Press <kbd class="kbd">&#96;</kbd> to open terminal
+        </button>
         <div class="footer-socials">
-            <a href="https://linkedin.com/in/sandarufernando" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:hansakasandaru99@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/sandarufernando" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:hansakasandaru99@gmail.com" aria-label="Send email"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 </footer>
 
 <!-- NEW: Easter Egg UI -->
-<div class="easter-egg-btn" id="easterEggTrigger">
+<button class="easter-egg-btn" id="easterEggTrigger" aria-label="Secret easter egg — click to unlock">
     <i class="fas fa-lock"></i>
-</div>
+</button>
 
 <div class="access-overlay" id="accessOverlay">
     <div class="access-terminal">
@@ -1399,6 +1410,114 @@ function executeCommand(cmd) {
     termOutput.appendChild(output);
     termOutput.scrollTop = termOutput.scrollHeight;
 }
+
+// ── Scroll Progress Bar ──────────────────────────────────────────────────────
+(function() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = pct + '%';
+    }, { passive: true });
+})();
+
+// ── Podcast Slider Dots ──────────────────────────────────────────────────────
+(function() {
+    const slider = document.getElementById('podcastSlider');
+    const dotsContainer = document.getElementById('podcastDots');
+    if (!slider || !dotsContainer) return;
+
+    const cards = slider.querySelectorAll('.pod-card');
+    const totalDots = Math.min(cards.length, 11);
+
+    // Build dots
+    for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to podcast ${i + 1}`);
+        dot.addEventListener('click', () => {
+            const card = cards[i];
+            if (card) slider.scrollTo({ left: card.offsetLeft - 10, behavior: 'smooth' });
+        });
+        dotsContainer.appendChild(dot);
+    }
+
+    // Sync active dot on scroll
+    const dots = dotsContainer.querySelectorAll('.slider-dot');
+    slider.addEventListener('scroll', () => {
+        const scrollLeft = slider.scrollLeft;
+        let closestIdx = 0, closestDist = Infinity;
+        cards.forEach((card, i) => {
+            const dist = Math.abs(card.offsetLeft - scrollLeft);
+            if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+        });
+        dots.forEach((d, i) => d.classList.toggle('active', i === closestIdx));
+    }, { passive: true });
+})();
+
+// ── Hamburger aria-expanded ──────────────────────────────────────────────────
+(function() {
+    const hbtn = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (!hbtn || !navLinks) return;
+    navLinks.id = 'nav-links';
+    const observer = new MutationObserver(() => {
+        hbtn.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
+        hbtn.setAttribute('aria-label', navLinks.classList.contains('open') ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    observer.observe(navLinks, { attributes: true, attributeFilter: ['class'] });
+})();
+
+// ── Footer hint opens terminal ───────────────────────────────────────────────
+(function() {
+    const hint = document.getElementById('footerTermHint');
+    const overlay = document.getElementById('terminal-overlay');
+    if (!hint || !overlay) return;
+    hint.addEventListener('click', () => {
+        overlay.classList.add('active');
+        const inp = document.getElementById('term-input');
+        if (inp) inp.focus();
+    });
+})();
+
+// ── Interactive Radar Chart ──────────────────────────────────────────────────
+(function() {
+    const svgs = document.querySelectorAll('.radar-svg');
+    if (!svgs.length) return;
+
+    const tooltip = document.createElement('div');
+    tooltip.className = 'radar-tooltip';
+    document.body.appendChild(tooltip);
+
+    svgs.forEach(svg => {
+        const dots = svg.querySelectorAll('.radar-dot');
+        const labels = svg.querySelectorAll('.radar-label');
+
+        dots.forEach((dot, i) => {
+            // Get paired label text for this dot
+            const labelEl = labels[i];
+            const skillName = labelEl ? labelEl.textContent.trim() : '';
+            const valLabel = svg.querySelectorAll('.radar-label-val')[i];
+            const skillVal = valLabel ? valLabel.textContent.trim() : '';
+
+            dot.style.cursor = 'crosshair';
+
+            dot.addEventListener('mouseenter', (e) => {
+                tooltip.textContent = `${skillName}: ${skillVal}`;
+                tooltip.classList.add('visible');
+            });
+            dot.addEventListener('mousemove', (e) => {
+                tooltip.style.left = (e.clientX + 12) + 'px';
+                tooltip.style.top = (e.clientY - 28) + 'px';
+            });
+            dot.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+        });
+    });
+})();
 </script>
 </body>
 </html>
