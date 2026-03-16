@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://img.youtube.com; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://img.youtube.com https://sandarufdo.github.io; connect-src 'self'; media-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:;">
     <title>Sandaru Fernando | Cybersecurity Specialist</title>
     <meta name="description" content="Portfolio of Sandaru Fernando — Cybersecurity Specialist in Blue & Red team operations, vulnerability assessments, and security leadership.">
+    <!-- Security headers via meta -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
     <link rel="stylesheet" href="style.css">
     <!-- Social / OG Preview -->
     <meta property="og:title" content="Sandaru Fernando | Cybersecurity Specialist">
@@ -16,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://sandarufdo.github.io/profile_cyber.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 <a href="#home" class="skip-link">Skip to main content</a>
@@ -1008,7 +1012,7 @@
                     <li><span class="ci-icon"><i class="fas fa-envelope"></i></span><a href="mailto:hansakasandaru99@gmail.com">hansakasandaru99@gmail.com</a></li>
                     <li><span class="ci-icon"><i class="fab fa-linkedin"></i></span><a href="https://linkedin.com/in/sandarufernando" target="_blank" rel="noopener noreferrer">linkedin.com/in/sandarufernando</a></li>
                 </ul>
-                <a href="https://drive.usercontent.google.com/uc?id=1GJnGrODG_xE860BTth9FI9noUZIAVSBI&export=download" class="btn-cyber mt-btn"><i class="fas fa-file-pdf"></i> Download CV</a>
+                <a href="Sandaru_Fernando_CV.pdf" download="Sandaru_Fernando_CV.pdf" class="btn-cyber mt-btn"><i class="fas fa-file-pdf"></i> Download CV</a>
             </div>
 
             <div class="contact-block hud-card reveal">
@@ -1432,13 +1436,17 @@ termInput.addEventListener('keydown', (e) => {
     }
 });
 
+function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
 function executeCommand(cmd) {
     if (!cmd) return;
     
-    // Echo command
+    // Echo command — user input MUST be escaped before innerHTML injection
     const line = document.createElement('div');
     line.className = 'term-line';
-    line.innerHTML = `<span class="term-prompt">sandaru@root:~$</span> <span class="term-cmd">${cmd}</span>`;
+    line.innerHTML = `<span class="term-prompt">sandaru@root:~$</span> <span class="term-cmd">${escapeHtml(cmd)}</span>`;
     termOutput.appendChild(line);
     
     const output = document.createElement('div');
