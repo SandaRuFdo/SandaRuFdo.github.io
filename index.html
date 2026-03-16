@@ -110,18 +110,85 @@
             </div>
         </div>
 
-        <!-- Far Right: Profile Photo -->
-        <div class="hero-avatar reveal">
-            <div class="avatar-frame">
-                <div class="avatar-corner atl"></div>
-                <div class="avatar-corner atr"></div>
-                <div class="avatar-corner abl"></div>
-                <div class="avatar-corner abr"></div>
-                <div class="avatar-scan"></div>
-                <img src="profile_cyber.png" alt="Sandaru Fernando" class="avatar-img">
-                <div class="avatar-overlay">
-                    <span class="av-badge">&#9679; ONLINE</span>
-                    <span class="av-badge red">&#11043; ANALYSING</span>
+        <!-- Far Right: HUD Operator Profile Card -->
+        <div class="hero-hud-card reveal" aria-label="Operator profile statistics">
+            <div class="hud-card-inner">
+                <!-- Corner brackets -->
+                <div class="hc-corner hc-tl"></div><div class="hc-corner hc-tr"></div>
+                <div class="hc-corner hc-bl"></div><div class="hc-corner hc-br"></div>
+
+                <!-- Header -->
+                <div class="hc-header">
+                    <span class="hc-label">OPERATOR_PROFILE</span>
+                    <span class="hc-status"><i class="fas fa-circle hud-live-dot"></i> ACTIVE</span>
+                </div>
+
+                <!-- Stat Counters -->
+                <div class="hc-stats">
+                    <div class="hc-stat">
+                        <span class="hc-num" data-target="5">0</span>
+                        <span class="hc-unit">YRS</span>
+                        <span class="hc-desc">EXPERIENCE</span>
+                    </div>
+                    <div class="hc-stat">
+                        <span class="hc-num" data-target="8">0</span>
+                        <span class="hc-unit">+</span>
+                        <span class="hc-desc">CERTS</span>
+                    </div>
+                    <div class="hc-stat">
+                        <span class="hc-num" data-target="25">0</span>
+                        <span class="hc-unit">+</span>
+                        <span class="hc-desc">TOOLS</span>
+                    </div>
+                    <div class="hc-stat">
+                        <span class="hc-num" data-target="11">0</span>
+                        <span class="hc-unit"></span>
+                        <span class="hc-desc">EPISODES</span>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="hc-divider"></div>
+
+                <!-- Skill Bars -->
+                <div class="hc-skills">
+                    <div class="hc-skill-row">
+                        <span class="hc-skill-name">SOC / SIEM</span>
+                        <div class="hc-bar"><div class="hc-bar-fill" data-w="92"></div></div>
+                        <span class="hc-pct">92%</span>
+                    </div>
+                    <div class="hc-skill-row">
+                        <span class="hc-skill-name">BLUE TEAM</span>
+                        <div class="hc-bar"><div class="hc-bar-fill" data-w="90"></div></div>
+                        <span class="hc-pct">90%</span>
+                    </div>
+                    <div class="hc-skill-row">
+                        <span class="hc-skill-name">PENTESTING</span>
+                        <div class="hc-bar red"><div class="hc-bar-fill red" data-w="78"></div></div>
+                        <span class="hc-pct">78%</span>
+                    </div>
+                    <div class="hc-skill-row">
+                        <span class="hc-skill-name">CLOUD SEC</span>
+                        <div class="hc-bar"><div class="hc-bar-fill" data-w="72"></div></div>
+                        <span class="hc-pct">72%</span>
+                    </div>
+                    <div class="hc-skill-row">
+                        <span class="hc-skill-name">LEADERSHIP</span>
+                        <div class="hc-bar"><div class="hc-bar-fill" data-w="85"></div></div>
+                        <span class="hc-pct">85%</span>
+                    </div>
+                </div>
+
+                <!-- Threat Level -->
+                <div class="hc-divider"></div>
+                <div class="hc-threat">
+                    <span class="hc-threat-label">THREAT_LVL</span>
+                    <div class="hc-threat-bars">
+                        <span class="tb active"></span><span class="tb active"></span>
+                        <span class="tb active"></span><span class="tb active"></span>
+                        <span class="tb active red"></span>
+                    </div>
+                    <span class="hc-threat-val">CRITICAL</span>
                 </div>
             </div>
         </div>
@@ -1517,6 +1584,50 @@ function executeCommand(cmd) {
             });
         });
     });
+})();
+
+// ── HUD Operator Card — Counter + Bar Animations ─────────────────────────────
+(function() {
+    const card = document.querySelector('.hero-hud-card');
+    if (!card) return;
+
+    let animated = false;
+    const animate = () => {
+        if (animated) return;
+        animated = true;
+
+        // Count-up numbers
+        card.querySelectorAll('.hc-num').forEach(el => {
+            const target = parseInt(el.dataset.target, 10);
+            const duration = 1200;
+            const step = 16;
+            const steps = Math.ceil(duration / step);
+            let current = 0;
+            const inc = target / steps;
+            const timer = setInterval(() => {
+                current = Math.min(current + inc, target);
+                el.textContent = Math.floor(current);
+                if (current >= target) clearInterval(timer);
+            }, step);
+        });
+
+        // Skill bar fills (CSS transition, just set the width)
+        card.querySelectorAll('.hc-bar-fill').forEach(el => {
+            const w = el.dataset.w || 0;
+            // Small delay so CSS transition fires after paint
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                el.style.width = w + '%';
+            }));
+        });
+    };
+
+    // Fire immediately if card is in view on load (it's in hero, above fold)
+    const io = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { animate(); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(card);
+    // Also fire after 800ms unconditionally in case observer misses
+    setTimeout(animate, 800);
 })();
 </script>
 </body>

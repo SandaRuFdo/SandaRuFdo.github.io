@@ -1629,3 +1629,162 @@ img { max-width: 100%; display: block; }
     #matrix-bg,
     #bg-canvas { display: none !important; }
 }
+
+/* =====================================================
+   HUD OPERATOR PROFILE CARD (hero right panel)
+   ===================================================== */
+.hero-hud-card {
+    position: relative;
+    width: 300px;
+    flex-shrink: 0;
+    align-self: center;
+}
+.hud-card-inner {
+    position: relative;
+    background: rgba(5, 8, 16, 0.82);
+    border: 1px solid rgba(0, 229, 255, 0.18);
+    border-radius: 4px;
+    padding: 1.2rem 1.3rem 1rem;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.05), inset 0 0 40px rgba(0, 229, 255, 0.02);
+}
+
+/* Corner brackets */
+.hc-corner {
+    position: absolute; width: 14px; height: 14px;
+    border-color: var(--primary); border-style: solid; border-width: 0;
+}
+.hc-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+.hc-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+.hc-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+.hc-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Header row */
+.hc-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+}
+.hc-label {
+    font-family: var(--font-head);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+}
+.hc-status {
+    font-family: var(--font-code);
+    font-size: 0.6rem;
+    color: #00e676;
+    display: flex; align-items: center; gap: 4px;
+}
+.hc-status .hud-live-dot { font-size: 0.45rem; color: #00e676; }
+
+/* Stat counters grid */
+.hc-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0.4rem; margin-bottom: 0.9rem;
+    text-align: center;
+}
+.hc-stat {
+    display: flex; flex-direction: column; align-items: center;
+    background: rgba(0, 229, 255, 0.04);
+    border: 1px solid rgba(0, 229, 255, 0.1);
+    border-radius: 3px; padding: 0.5rem 0.3rem;
+}
+.hc-num {
+    font-family: var(--font-head);
+    font-size: 1.5rem; font-weight: 900;
+    color: var(--primary);
+    text-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+    line-height: 1;
+}
+.hc-unit {
+    font-family: var(--font-code);
+    font-size: 0.6rem; color: var(--primary); opacity: 0.7;
+    line-height: 1.4;
+}
+.hc-desc {
+    font-family: var(--font-code);
+    font-size: 0.52rem; color: var(--muted);
+    letter-spacing: 1px; margin-top: 2px;
+}
+
+/* Divider */
+.hc-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 229, 255, 0.25), transparent);
+    margin: 0.7rem 0;
+}
+
+/* Skill bars */
+.hc-skills { display: flex; flex-direction: column; gap: 0.42rem; }
+.hc-skill-row {
+    display: grid; grid-template-columns: 72px 1fr 30px;
+    align-items: center; gap: 0.5rem;
+}
+.hc-skill-name {
+    font-family: var(--font-code); font-size: 0.55rem;
+    color: var(--muted); letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+.hc-bar {
+    height: 4px;
+    background: rgba(0, 229, 255, 0.08);
+    border-radius: 2px; overflow: hidden;
+}
+.hc-bar-fill {
+    height: 100%; width: 0;
+    background: linear-gradient(to right, rgba(0, 229, 255, 0.6), var(--primary));
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.4);
+    transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.hc-bar.red { background: rgba(255, 23, 68, 0.08); }
+.hc-bar-fill.red {
+    background: linear-gradient(to right, rgba(255, 23, 68, 0.6), var(--red));
+    box-shadow: 0 0 6px rgba(255, 23, 68, 0.4);
+}
+.hc-pct {
+    font-family: var(--font-code); font-size: 0.52rem;
+    color: var(--primary); text-align: right;
+}
+
+/* Threat level */
+.hc-threat {
+    display: flex; align-items: center; gap: 0.6rem;
+}
+.hc-threat-label {
+    font-family: var(--font-code); font-size: 0.55rem;
+    color: var(--muted); letter-spacing: 1px; white-space: nowrap;
+}
+.hc-threat-bars { display: flex; gap: 3px; align-items: flex-end; }
+.tb {
+    display: block; width: 8px; border-radius: 1px;
+    background: rgba(0, 229, 255, 0.15);
+}
+.tb:nth-child(1) { height: 8px; }
+.tb:nth-child(2) { height: 12px; }
+.tb:nth-child(3) { height: 16px; }
+.tb:nth-child(4) { height: 20px; }
+.tb:nth-child(5) { height: 24px; }
+.tb.active { background: var(--primary); box-shadow: 0 0 6px rgba(0, 229, 255, 0.5); }
+.tb.active.red { background: var(--red); box-shadow: 0 0 8px rgba(255, 23, 68, 0.6); animation: threat-pulse 1.2s ease-in-out infinite; }
+@keyframes threat-pulse {
+    0%, 100% { box-shadow: 0 0 6px rgba(255, 23, 68, 0.4); }
+    50% { box-shadow: 0 0 16px rgba(255, 23, 68, 0.9); }
+}
+.hc-threat-val {
+    font-family: var(--font-head); font-size: 0.6rem;
+    color: var(--red); letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 23, 68, 0.6);
+    margin-left: auto;
+}
+
+/* Responsive – stack below 768px, hide on small phones */
+@media (max-width: 900px) {
+    .hero-hud-card { width: 260px; }
+    .hc-num { font-size: 1.2rem; }
+}
+@media (max-width: 768px) {
+    .hero-hud-card { display: none; }
+}
