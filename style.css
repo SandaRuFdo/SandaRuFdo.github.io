@@ -223,7 +223,7 @@ img { max-width: 100%; display: block; }
     letter-spacing: 2px !important;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease !important;
+    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
 }
 .nav-cta::before {
     content: '';
@@ -663,7 +663,7 @@ img { max-width: 100%; display: block; }
     min-height: 200px; /* Lock height to prevent jumping during cycle */
 }
 .t-line {
-    transition: all 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     display: grid;
     grid-template-columns: 60px 140px 1fr;
     gap: 1rem;
@@ -892,7 +892,7 @@ img { max-width: 100%; display: block; }
     font-family: var(--font-code); font-size: 0.72rem; color: var(--muted);
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: default;
     position: relative;
     overflow: hidden;
