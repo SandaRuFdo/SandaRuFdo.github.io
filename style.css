@@ -1900,3 +1900,91 @@ img { max-width: 100%; display: block; }
     88%           { opacity: 0.5; }
     89%           { opacity: 1; }
 }
+
+/* ── UTILITIES ADDED FOR CSP COMPLIANCE ────────────────────────── */
+.hud-cursor {
+    color: var(--primary);
+    margin-left: auto;
+}
+.t-text-link {
+    color: var(--primary);
+    text-decoration: underline;
+}
+.full-width-primary {
+    grid-column: 1 / -1;
+    border-color: var(--primary);
+}
+.full-width-dashed {
+    grid-column: 1 / -1;
+    opacity: 0.85;
+    border-style: dashed;
+}
+.text-muted-heading {
+    color: var(--muted);
+}
+.icon-muted-spaced {
+    color: var(--muted);
+    margin-right: 0.5rem;
+}
+.mb-0 { margin-bottom: 0; }
+.mb-8 { margin-bottom: 2rem; }
+.mt-12 { margin-top: 3rem; }
+
+.cert-badge.in-prog {
+    border-color: rgba(255, 189, 46, 0.6);
+    color: #ffbd2e;
+}
+.pod-card.featured {
+    border-color: var(--primary);
+}
+.pod-badge-new {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--primary);
+    color: #000;
+    font-family: var(--font-code);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+}
+
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.session-icon {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.session-title {
+    font-family: var(--font-head);
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+.session-desc {
+    flex-grow: 1;
+    font-size: 0.9rem;
+}
+.btn-outline.session-link {
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+.access-granted-title {
+    display: none;
+    text-align: center;
+    color: var(--primary);
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-shadow: 0 0 20px var(--primary);
+}
+
