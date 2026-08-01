@@ -1,4 +1,4 @@
-﻿// BG canvas animation
+// BG canvas animation
 (function() {
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
@@ -256,6 +256,7 @@ ham.addEventListener('click', () => { ham.classList.toggle('active'); navLinks.c
 
 // Hacker Terminal Feed Cycler
 const feedData = [
+    '<span class="t-time hl-blue">[DEPLOY]</span> <strong class="t-badge hl-blue">[PROJECT]</strong> <span class="t-text">Secora AI Assistant — RAG with Claude Opus, ChromaDB & Entra ID SSO live.</span>',
     '<span class="t-time hl-red">[FUTURE]</span> <strong class="t-badge hl-blue">[EVENT]</strong> <span class="t-text">22nd March - Guest speaker "AI, Cyber Security and content security" - Colombo Creative Academy.</span>',
     '<span class="t-time hl-blue">[LIVE]</span> <strong class="t-badge hl-red">[NEW_RECORD]</strong> <span class="t-text">Achieved 15+ hours of curated technical cyber awareness podcasts on air.</span>',
     '<span class="t-time hl-blue">[SYS]</span> <strong class="t-badge hl-blue">[APPOINTMENT]</strong> <span class="t-text">Now guiding newcomers as Consultant Educator at NIBM CertHub.</span>',
