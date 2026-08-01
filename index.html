@@ -30,46 +30,61 @@
     <meta name="twitter:title" content="Sandaru Fernando | Senior Security Operations &amp; Cloud Security Engineer">
     <meta name="twitter:description" content="Senior SOC &amp; Cloud Security Engineer skilled in incident response, penetration testing, EDR/XDR, and AI security governance.">
     <meta name="twitter:image" content="https://sandarufdo.github.io/profile_cyber.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Schema.org Structured Data for Google Rich Snippets & Knowledge Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sandaru Fernando",
-      "alternateName": "Hansaka Sandaru Fernando",
-      "url": "https://sandarufdo.github.io/",
-      "image": "https://sandarufdo.github.io/profile_cyber.png",
-      "sameAs": [
-        "https://www.linkedin.com/in/sandarufernando",
-        "https://github.com/SandaRuFdo"
-      ],
-      "jobTitle": "Senior Security Operations & Cloud Security Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Carlson Marketing Solutions"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "Sri Lanka Institute of Information Technology (SLIIT)"
-      },
-      "knowsAbout": [
-        "Cybersecurity",
-        "Security Operations Center (SOC)",
-        "Cloud Security Architecture",
-        "Penetration Testing",
-        "Incident Response",
-        "CrowdStrike Falcon",
-        "Qualys VMDR",
-        "Wazuh SIEM",
-        "AI Policy & Governance"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Colombo",
-        "addressCountry": "Sri Lanka"
-      }
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://sandarufdo.github.io/#profilepage",
+          "url": "https://sandarufdo.github.io/",
+          "name": "Sandaru Fernando | Senior Security Operations & Cloud Security Engineer",
+          "mainEntity": { "@id": "https://sandarufdo.github.io/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://sandarufdo.github.io/#person",
+          "name": "Sandaru Fernando",
+          "alternateName": ["Hansaka Sandaru Fernando", "Sandaru Fdo"],
+          "url": "https://sandarufdo.github.io/",
+          "image": "https://sandarufdo.github.io/profile_cyber.png",
+          "sameAs": [
+            "https://www.linkedin.com/in/sandarufernando",
+            "https://github.com/SandaRuFdo"
+          ],
+          "jobTitle": "Senior Security Operations & Cloud Security Engineer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Carlson Marketing Solutions"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Sri Lanka Institute of Information Technology (SLIIT)"
+          },
+          "knowsAbout": [
+            "Cybersecurity",
+            "Security Operations Center (SOC)",
+            "Cloud Security Architecture",
+            "Penetration Testing",
+            "Incident Response",
+            "CrowdStrike Falcon",
+            "Qualys VMDR",
+            "Wazuh SIEM",
+            "AI Policy & Governance"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Colombo",
+            "addressCountry": "Sri Lanka"
+          }
+        }
+      ]
     }
     </script>
 </head>
