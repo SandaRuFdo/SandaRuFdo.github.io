@@ -390,18 +390,33 @@ function executeCommand(cmd) {
     switch (cmd) {
         case 'help':
             output.innerHTML = `
-                <div class="term-help-item"><span class="term-help-cmd">whoami</span><span>Display current user profile.</span></div>
-                <div class="term-help-item"><span class="term-help-cmd">ls skills</span><span>List modular technical expertise.</span></div>
-                <div class="term-help-item"><span class="term-help-cmd">sudo hire</span><span>Enable recruitment protocol.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">whoami</span><span>Display current operator profile.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">ls skills</span><span>List modular technical security stack.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">ls certs</span><span>Enumerate validated cybersecurity credentials.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">ls projects</span><span>Show key engineering architectures.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">contact</span><span>Display communication & intel channels.</span></div>
+                <div class="term-help-item"><span class="term-help-cmd">sudo hire</span><span>Enable direct recruitment protocol.</span></div>
                 <div class="term-help-item"><span class="term-help-cmd">clear</span><span>Flush the terminal buffer.</span></div>
                 <div class="term-help-item"><span class="term-help-cmd">exit</span><span>Terminate remote session.</span></div>
             `;
             break;
         case 'whoami':
-            output.innerText = "NAME: Sandaru Fernando | ROLE: Cybersecurity Specialist | STATUS: ACTING_ROOT";
+            output.innerText = "NAME: Sandaru Fernando | ROLE: Senior SecOps & Cloud Security Engineer | STATUS: ACTING_ROOT";
             break;
         case 'ls skills':
-            output.innerText = "CrowdStrike, SentinelOne, Burp, Nmap, Splunk, Azure, AWS, Nessus, MITRE ATT&CK...";
+        case 'skills':
+            output.innerText = "STACK: CrowdStrike Falcon, SentinelOne, Wazuh, Elastic Stack, Splunk, Qualys VMDR, Burp Suite Pro, Nmap, Cymulate BAS, Zscaler ZIA/ZPA, AWS, Azure, GCP, Claude Opus AI Security.";
+            break;
+        case 'ls certs':
+        case 'certs':
+            output.innerText = "CERTS: CEH v12 (EC-Council), CyberArk PAM Trustee, Qualys VMDR & TotalCloud, OPSWAT NSA & ECA, Fortinet NSE 1&2, SkillFront ISO/IEC 27001, arcX CTI 101, TCM PEH (In Prog), RHCSA (In Prog).";
+            break;
+        case 'ls projects':
+        case 'projects':
+            output.innerText = "PROJECTS: [1] Secora AI Policy & Governance Assistant (FastAPI + Claude Opus + Next.js 15 RAG), [2] Cross-Cloud CID Validation (Qualys API + Python), [3] Production SIEM Deployment (Wazuh + ELK + TheHive).";
+            break;
+        case 'contact':
+            output.innerText = "EMAIL: hansakasandaru99@gmail.com | PHONE: +94 77 988 3227 | LINKEDIN: linkedin.com/in/sandarufernando | LOCATION: Colombo, Sri Lanka";
             break;
         case 'sudo hire':
             output.innerText = "Recruitment protocol activated. Redirecting to comms layer...";
@@ -571,4 +586,69 @@ function executeCommand(cmd) {
     io.observe(card);
     // Also fire after 800ms unconditionally in case observer misses
     setTimeout(animate, 800);
+})();
+
+// ── Secret Easter Egg Lock Overlay ───────────────────────────────────────
+(function() {
+    const trigger = document.getElementById('easterEggTrigger');
+    const overlay = document.getElementById('accessOverlay');
+    const linesContainer = document.getElementById('decrypt-lines');
+    const title = document.getElementById('accessTitle');
+    const closeBtn = document.getElementById('closeAccessOverlay');
+    if (!trigger || !overlay || !linesContainer || !title) return;
+
+    let isRunning = false;
+    let timeouts = [];
+
+    function runDecryption() {
+        if (isRunning) return;
+        isRunning = true;
+        overlay.classList.add('active');
+        linesContainer.innerHTML = '';
+        title.style.display = 'none';
+
+        const logs = [
+            "[INIT] Initializing secure neural interface...",
+            "[AUTH] Validating cryptographic handshake: SHA-512 match confirmed.",
+            "[BYPASS] Simulating privilege escalation & zero-trust tunnel override...",
+            "[DECRYPT] Reconstructing level-5 security clearance parameters...",
+            "[STATUS] Access Granted. Welcome, Operator Sandaru."
+        ];
+
+        timeouts = [];
+        logs.forEach((log, index) => {
+            const t = setTimeout(() => {
+                const line = document.createElement('div');
+                line.className = 'decrypt-line';
+                line.textContent = log;
+                linesContainer.appendChild(line);
+
+                if (index === logs.length - 1) {
+                    const tFinal = setTimeout(() => {
+                        title.style.display = 'block';
+                    }, 400);
+                    timeouts.push(tFinal);
+                }
+            }, (index + 1) * 550);
+            timeouts.push(t);
+        });
+    }
+
+    function closeDecryption() {
+        overlay.classList.remove('active');
+        isRunning = false;
+        title.style.display = 'none';
+        linesContainer.innerHTML = '';
+        timeouts.forEach(t => clearTimeout(t));
+        timeouts = [];
+    }
+
+    trigger.addEventListener('click', runDecryption);
+    if (closeBtn) closeBtn.addEventListener('click', closeDecryption);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeDecryption();
+    });
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeDecryption();
+    });
 })();
